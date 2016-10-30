@@ -3,16 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vu;
+package startPage;
 
 /**
  *
  * @author morteza
  */
-public class Vu {
-
-    public static void main(String[] args) {
-         
-    }
+public class FirstPage {
     
 }
