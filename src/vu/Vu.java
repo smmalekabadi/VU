@@ -5,6 +5,9 @@
  */
 package vu;
 
+import file.RWonFile;
+import startPage.SignUp;
+
 /**
  *
  * @author morteza
@@ -12,7 +15,7 @@ package vu;
 public class Vu {
 
     public static void main(String[] args) {
-         
+        SignUp su= new SignUp();
     }
     
 }
