@@ -5,7 +5,9 @@
  */
 package users;
 
-import com.sun.xml.internal.ws.api.ha.StickyFeature;
+import controller.saveCourse;
+import course.Course;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,10 +15,24 @@ import com.sun.xml.internal.ws.api.ha.StickyFeature;
  */
 public class Student extends Person {
 
+    ArrayList<String> courseName;
+
     public Student(String name, String username) {
         super(name, username);
-   
+    }
 
+    public ArrayList<Course> courseList() {
+        ArrayList<Course> allCourse = saveCourse.getAllCourse();
+        ArrayList<Course> myCourse = null;
+        for (Course course : allCourse) {
+            for (String coursename : courseName) {
+                if (course.getCourseName().equals(coursename)) {
+                    myCourse.add(course);
+                }
+            }
+
+        }
+        return myCourse;
     }
 
 }

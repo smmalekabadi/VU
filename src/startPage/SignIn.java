@@ -28,7 +28,7 @@ public class SignIn {
         ArrayList<String> allUser = null;
 
         try {
-            allUser = new RWonFile("filename.txt").ReadFromfile();
+            allUser = RWonFile.ReadFromfile("filename.txt");
         } catch (Exception ex) {
             Logger.getLogger(SignIn.class.getName()).log(Level.SEVERE, null, ex);
         }

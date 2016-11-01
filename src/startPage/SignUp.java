@@ -38,7 +38,7 @@ public class SignUp {
         int isOK = 0;
         ArrayList<String> allUser = null;
         try {
-            allUser = new RWonFile("filename.txt").ReadFromfile();
+            allUser = RWonFile.ReadFromfile("filename.txt");
         } catch (Exception ex) {
             Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -55,7 +55,7 @@ public class SignUp {
             scan();
         }
         else 
-           new RWonFile("filename.txt").appendOnFile(name+"#"+username+"#"+password+"#"+email);
+           RWonFile.appendOnFile(name+"#"+username+"#"+password+"#"+email,"filename.txt");
 
     }
 
@@ -67,7 +67,7 @@ public class SignUp {
         email = sc1.nextLine();
         verfiy();
     }
-//-------------------------------------------------------------------
+//-------------------------------------------------------------------------------
 
     /**
      * @return the name

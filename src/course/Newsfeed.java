@@ -5,37 +5,32 @@
  */
 package course;
 
-import java.util.Date;
-import java.time.*;
-
 /**
  *
  * @author morteza
  */
-public class Exercise {
+public class Newsfeed {
 
-    private String name;
+    private String subject;
     private String description;
-    private Date date;
 
-    public Exercise(String name, String description, Date date) {
-        this.name=name;
+    public Newsfeed(String subject, String description) {
+        this.subject=subject;
         this.description=description;
-        this.date=date;
     }
 //-------------------------------------------------------------------------------
     /**
-     * @return the name
+     * @return the subject
      */
-    public String getName() {
-        return name;
+    public String getSubject() {
+        return subject;
     }
 
     /**
-     * @param name the name to set
+     * @param subject the subject to set
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setSubject(String subject) {
+        this.subject = subject;
     }
 
     /**
@@ -50,19 +45,5 @@ public class Exercise {
      */
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    /**
-     * @return the date
-     */
-    public Date getDate() {
-        return date;
-    }
-
-    /**
-     * @param date the date to set
-     */
-    public void setDate(Date date) {
-        this.date = date;
     }
 }

@@ -21,16 +21,11 @@ import java.util.Arrays;
  *
  * @author morteza
  */
-public class RWonFile {
+public final class RWonFile {
 
-    private String path;
-
-    public RWonFile(String path) {
-    this.path=path;
     
-    }
 
-    public ArrayList ReadFromfile() throws Exception {
+    public static ArrayList ReadFromfile(String path) throws Exception {
         FileReader fr = null;
         BufferedReader br = null;
         ArrayList<String> places = new ArrayList<String>();
@@ -41,7 +36,7 @@ public class RWonFile {
 
         } catch (Exception e) {
         }
-        int n = getNumberOfline();
+        int n = getNumberOfline(path);
         str = new String[n];
         for (int i = 0; i < n; i++) {
             places.add(br.readLine());
@@ -51,7 +46,7 @@ public class RWonFile {
         return places;
     }
 
-    public int getNumberOfline() throws Exception {
+    public static int getNumberOfline(String path) throws Exception {
         BufferedReader br = new BufferedReader(new FileReader(path));
         int counter = 0;
         while (br.readLine() != null) {
@@ -62,10 +57,10 @@ public class RWonFile {
         return counter;
     }
 
-    public void appendOnFile( String append) {
+    public static void appendOnFile(String append,String path) {
         ArrayList<String> readabl = null;
         try {
-            readabl = ReadFromfile();
+            readabl = ReadFromfile(path);
 
         } catch (Exception ex) {
         }
@@ -88,20 +83,4 @@ public class RWonFile {
             }
         }
     }
-//-------------------------------------------------------------------
-
-    /**
-     * @return the path
-     */
-    public String getPath() {
-        return path;
-    }
-
-    /**
-     * @param path the path to set
-     */
-    public void setPath(String path) {
-        this.path = path;
-    }
-
 }
