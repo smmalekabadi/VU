@@ -44,12 +44,12 @@ public class SignUp {
         }
         for (int i = 0; i < allUser.size(); i++) {
             if (allUser.get(i).split("#")[1].equals(username)) {
-                isOK = 1;
+                isOK = 1;//already exists user 
             }
         }
        
         if (!email.contains("@")) {
-            isOK = 1;
+            isOK = 1;//email is not real
         }
         if (isOK == 1) {
             scan();
