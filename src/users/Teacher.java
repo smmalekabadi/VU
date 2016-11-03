@@ -33,17 +33,6 @@ public class Teacher extends Person {
                             
     }
 
-    public void addStudentToCourse(Course course,Student student) {
-        course.setOneCourseStudent(student);
-    }
-
-    public void removeStudentFromCourse(Course course,Student student) {
-        course.getCourseStudent().remove(student);
-    }
-
-    public void seeStudent(Course course) {
-        System.out.println(course.getCourseStudent());
-    }
     public void createExercise(Course course,String name,String description ,Date date){
         course.setOneCourseExercise(new Exercise(name, description, date));
     

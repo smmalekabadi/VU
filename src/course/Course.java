@@ -16,7 +16,7 @@ import users.Student;
 public class Course {
 
     private String courseName;
-    private ArrayList<Student> courseStudent = null;
+   
     private ArrayList<Exercise> courseExercise = null;
     private ArrayList<Newsfeed> courseNewsFeed = null;
 
@@ -40,26 +40,7 @@ public class Course {
         this.courseName = courseName;
     }
 
-    /**
-     * @return the courseStudent
-     */
-    public ArrayList<Student> getCourseStudent() {
-        return courseStudent;
-    }
-
-    /**
-     * @param one courseStudent
-     */
-    public void setOneCourseStudent(Student newStudent) {
-        courseStudent.add(newStudent);
-    }
-
-    /**
-     * @param courseStudent the courseStudent to set
-     */
-    public void setCourseStudent(ArrayList<Student> courseStudent) {
-        this.courseStudent = courseStudent;
-    }
+ 
 
     /**
      * @return the courseExercise

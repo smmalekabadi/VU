@@ -15,24 +15,18 @@ import java.util.ArrayList;
  */
 public class Student extends Person {
 
-    ArrayList<String> courseName;
+    ArrayList<Course> AllCourse;
 
     public Student(String name, String username) {
         super(name, username);
     }
-
-    public ArrayList<Course> courseList() {
-        ArrayList<Course> allCourse = saveCourse.getAllCourse();
-        ArrayList<Course> myCourse = null;
-        for (Course course : allCourse) {
-            for (String coursename : courseName) {
-                if (course.getCourseName().equals(coursename)) {
-                    myCourse.add(course);
-                }
-            }
-
-        }
-        return myCourse;
+    public void coureList(){
+    
     }
-
+   public void newsfeed(){
+   
+   }
+   public void exercise(){
+   
+   }
 }

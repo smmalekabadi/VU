@@ -5,8 +5,15 @@
         <group>
             <file>file:/home/morteza/NetBeansProjects/vu/src/startPage/SignIn.java</file>
             <file>file:/home/morteza/NetBeansProjects/vu/src/vu/Vu.java</file>
+            <file>file:/home/morteza/NetBeansProjects/vu/src/controller/saveCourse.java</file>
             <file>file:/home/morteza/NetBeansProjects/vu/src/startPage/SignUp.java</file>
-            <file>file:/home/morteza/NetBeansProjects/vu/src/startPage/FirstPage.java</file>
+            <file>file:/home/morteza/NetBeansProjects/vu/src/users/Teacher.java</file>
+            <file>file:/home/morteza/NetBeansProjects/vu/src/course/Course.java</file>
+            <file>file:/home/morteza/NetBeansProjects/vu/src/file/RWonFile.java</file>
+            <file>file:/home/morteza/NetBeansProjects/vu/src/course/Newsfeed.java</file>
+            <file>file:/home/morteza/NetBeansProjects/vu/src/users/Person.java</file>
+            <file>file:/home/morteza/NetBeansProjects/vu/src/users/Student.java</file>
+            <file>file:/home/morteza/NetBeansProjects/vu/src/course/Exercise.java</file>
         </group>
     </open-files>
 </project-private>
