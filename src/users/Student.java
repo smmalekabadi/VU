@@ -15,18 +15,50 @@ import java.util.ArrayList;
  */
 public class Student extends Person {
 
-    ArrayList<Course> AllCourse;
+    private ArrayList<Course> AllCourse;
+    private ArrayList<Course> myCourse;
 
     public Student(String name, String username) {
         super(name, username);
     }
-    public void coureList(){
-    
+
+    public void coureList() {
+
     }
-   public void newsfeed(){
-   
-   }
-   public void exercise(){
-   
-   }
+
+    public void newsfeed() {
+
+    }
+
+    public void exercise() {
+
+    }
+//-------------------------------------------------------------------------------
+    /**
+     * @return the AllCourse
+     */
+    public ArrayList<Course> getAllCourse() {
+        return AllCourse;
+    }
+
+    /**
+     * @param AllCourse the AllCourse to set
+     */
+    public void setAllCourse(ArrayList<Course> AllCourse) {
+        this.AllCourse = AllCourse;
+    }
+
+    /**
+     * @return the myCourse
+     */
+    public ArrayList<Course> getMyCourse() {
+        return myCourse;
+    }
+
+    /**
+     * @param myCourse the myCourse to set
+     */
+    public void setMyCourse(ArrayList<Course> myCourse) {
+        this.myCourse = myCourse;
+    }
 }

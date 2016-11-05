@@ -27,7 +27,7 @@ public class SignUpUI extends JPanel {
     private myPasswordField password;
     private myLabel virtualUniversity;
     private myButton signUp;
-
+  
     Image bgimg;
     double width;
     double height;
@@ -68,7 +68,7 @@ public class SignUpUI extends JPanel {
         password = new myPasswordField();
         signUp = new myButton();
         virtualUniversity = new myLabel();
-
+  
         virtualUniversity.setText("Virtual University");
         virtualUniversity.setLocation((int) width / 2 - 220, (int) height / 2 - 200);
         virtualUniversity.setSize(450, 100);
@@ -92,7 +92,7 @@ public class SignUpUI extends JPanel {
         email.setText("EMAIL");
         email.setLocation((int) width / 2 - 150, (int) height / 2 + 50);
         email.setSize(300, 35);
-        email.setBorder(BorderFactory.createCompoundBorder(name.getBorder(), BorderFactory.createEmptyBorder(5, 8, 5, 5)));
+        email.setBorder(BorderFactory.createCompoundBorder(email.getBorder(), BorderFactory.createEmptyBorder(5, 8, 5, 5)));
 
         signUp.setText("sign up");
         signUp.setLocation((int) width / 2 - 150, (int) height / 2 + 100);
@@ -104,6 +104,6 @@ public class SignUpUI extends JPanel {
         add(password);
         add(email);
         add(signUp);
-        
+
     }
 }

@@ -17,7 +17,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import jdk.nashorn.internal.codegen.CompilerConstants;  
+import javax.swing.JRadioButton;
+import jdk.nashorn.internal.codegen.CompilerConstants;
 
 /**
  *
@@ -25,15 +26,17 @@ import jdk.nashorn.internal.codegen.CompilerConstants;
  */
 public class test extends JFrame {
 
-
     public test() {
-       
+
     }
 
     public static void main(String[] args) {
         test t;
         t = new test();
-        t.getpanel(new SignUpUI());
+        StudentUI s=new StudentUI("morteza","sda");
+        s.lixti();
+        t.getpanel(s);
+        
         t.setDefaultCloseOperation(3);
         t.setVisible(true);
         t.setExtendedState(JFrame.MAXIMIZED_BOTH);
