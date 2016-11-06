@@ -48,7 +48,7 @@ public class SignInUI extends JPanel {
         }
         getScreenSize();
         settingElement();
-        new test().getpanel(this);
+        new test().setpanel(this);
     }
 
     public void settingElement() {

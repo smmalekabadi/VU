@@ -44,7 +44,7 @@ public class SignUpUI extends JPanel {
         }
         getScreenSize();
         settingElement();
-        new test().getpanel(this);
+        new test().setpanel(this);
     }
 
     protected void paintComponent(Graphics g) {

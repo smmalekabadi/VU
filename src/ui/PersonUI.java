@@ -45,7 +45,7 @@ public class PersonUI extends JPanel {
         }
         getScreenSize();
         settingElement();
-        new test().getpanel(this);
+        
     }
 
     public void getScreenSize() {
@@ -86,5 +86,9 @@ public class PersonUI extends JPanel {
         int imheight = bgimg.getHeight(null);
         g.drawImage(bgimg, 1, 1, null);
 
+    }
+    public JPanel getPanel(){
+    
+    return this;
     }
 }

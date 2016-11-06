@@ -17,12 +17,12 @@ public class Course {
 
     private String courseName;
    
-    private ArrayList<Exercise> courseExercise = null;
-    private ArrayList<Newsfeed> courseNewsFeed = null;
+    private ArrayList<Exercise> courseExercise = new ArrayList<>();
+    private ArrayList<Newsfeed> courseNewsFeed = new ArrayList<>();
 
     public Course(String courseName) {
         this.courseName = courseName;
-        saveCourse.addOnecourse(this);
+        //saveCourse.addOnecourse(this);
     }
 
 //-------------------------------------------------------------------------------
