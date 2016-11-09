@@ -19,7 +19,7 @@ import javax.swing.ListModel;
  */
 public class StudentUI extends PersonUI {
 
-    private myList courseList;
+    //private myList courseList;
 
     public StudentUI(String name, String username) {
         super(name);
@@ -54,11 +54,6 @@ public class StudentUI extends PersonUI {
 
     }
 
-    public void lixti() {
-        JList mylist = new JList();
-        mylist.setLocation(500, 500);
-        mylist.setSize(500, 500);
-        this.add(mylist);
-    }
+  
 
 }

@@ -19,7 +19,7 @@ public class Course {
    
     private ArrayList<Exercise> courseExercise = new ArrayList<>();
     private ArrayList<Newsfeed> courseNewsFeed = new ArrayList<>();
-
+    
     public Course(String courseName) {
         this.courseName = courseName;
         //saveCourse.addOnecourse(this);

@@ -15,6 +15,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.MediaTracker;
 import java.awt.Toolkit;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.ImageIcon;
@@ -40,14 +41,19 @@ public class test extends JFrame {
 
         c = new ArrayList<Course>();
         Course cc = new Course("asda");
-        cc.setOneCourseExercise(new Exercise("asdasd", "sadasd", new Date(2012, 1, 20)));
+        Exercise exercis = new Exercise("asdasd", "sadasd", new Date(2014, 1, 20));
+        File f = new File("//home//morteza//Desktop//train//file.txt");
+        System.out.println(f.isFile());
+        exercis.setOneUploadedExecise(f);
+        cc.setOneCourseExercise(exercis);
         cc.setOneCourseNewsfeed(new Newsfeed("adasd", "sdadad"));
         c.add(cc);
         test t;
         t = new test();
-        StudentUI s = new StudentUI("morteza", "sda");
-        s.showCourses(c);
-        s.showNewseedExercise(c);
+        TeacherUI s = new TeacherUI("morteza", "dasd");
+
+        s.showMyCourse(c);
+        s.showStudentExecrcise(c);
         t.setpanel(s);
         t.setDefaultCloseOperation(3);
         t.setVisible(true);
