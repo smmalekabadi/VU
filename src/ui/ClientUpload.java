@@ -38,6 +38,8 @@ class ClientUpload extends JFrame implements ActionListener {
         setLayout(null);
         setSize(400, 300);
         setVisible(true);
+        
+        
         try {
             s = new Socket("localhost", 10);
             dout = new DataOutputStream(s.getOutputStream());

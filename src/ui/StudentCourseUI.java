@@ -9,10 +9,12 @@ package ui;
  *
  * @author morteza
  */
-public class StudentCourseUI extends CourseUI{
+public class StudentCourseUI extends CourseUI {
+
     private myButton joinTheCourse;
+
     public StudentCourseUI(String name) {
         super(name);
     }
-    
+
 }

@@ -23,17 +23,16 @@ import javax.swing.JPanel;
  *
  * @author morteza
  */
-public class CourseUI extends JPanel {
+public class CourseObjUI extends JPanel {
 
-    private myButton back;
-    private myLabel courseName;
     private String name;
+    private myLabel CourseObjName;
+    private myButton back;
     double width;
     double height;
-
     Image bgimg;
 
-    public CourseUI(String name) {
+    public CourseObjUI(String name) {
         this.name = name;
         setLayout(null);
         MediaTracker mt = new MediaTracker(this);
@@ -55,39 +54,25 @@ public class CourseUI extends JPanel {
     }
 
     public void settingElement() {
-        courseName = new myLabel();
-        back = new myButton();
 
-        courseName.setText(getName());
-        courseName.setLocation((int) width / 10, (int) height / 36);
-        courseName.setFont(new Font("Serif", Font.PLAIN, 36));
-        courseName.setSize(450, 100);
+        CourseObjName = new myLabel();
+        back = new myButton();
+        
+        CourseObjName.setText(getName());
+        CourseObjName.setLocation((int) width / 10, (int) height / 36);
+        CourseObjName.setFont(new Font("Serif", Font.PLAIN, 36));
+        CourseObjName.setSize(450, 100);
 
         back.setSize(48, 48);
         back.setLocation((int) width - 220, (int) height / 14);
         back.setIcon(new ImageIcon("//home//morteza//NetBeansProjects//vu//pictures//back.png"));
         back.setBorder(null);
-        add(courseName);
+        add(CourseObjName);
         add(back);
 
     }
 
-    public void showNewsfeedExercise(Course course) {
-        myList myNewsfeedExercise = new myList();
-        ArrayList<CourseObj> courseobj = new ArrayList<CourseObj>();
-
-        for (Exercise ex : course.getCourseExercise()) {
-            courseobj.add(ex);
-        }
-        for (Newsfeed newsfeed : course.getCourseNewsFeed()) {
-            courseobj.add(newsfeed);
-
-        }
-        myNewsfeedExercise.setListData(courseobj.toArray());
-        myNewsfeedExercise.setLocation((int) (width / (12)), (int) (height / 4));
-        myNewsfeedExercise.setSize(500, 500);
-
-        add(myNewsfeedExercise);
+    public void showDetail() {
 
     }
 
@@ -103,19 +88,5 @@ public class CourseUI extends JPanel {
 
         return this;
     }
-//-------------------------------------------------------------------------------
 
-    /**
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * @param name the name to set
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
 }

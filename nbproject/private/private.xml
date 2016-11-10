@@ -6,11 +6,18 @@
             <file>file:/home/morteza/NetBeansProjects/vu/src/ui/myList.java</file>
             <file>file:/home/morteza/NetBeansProjects/vu/src/ui/CourseUI.java</file>
             <file>file:/home/morteza/NetBeansProjects/vu/src/ui/myLabel.java</file>
-            <file>file:/home/morteza/NetBeansProjects/vu/src/ui/myTextField.java</file>
-            <file>file:/home/morteza/NetBeansProjects/vu/src/controller/saveCourse.java</file>
             <file>file:/home/morteza/NetBeansProjects/vu/src/startPage/SignUp.java</file>
             <file>file:/home/morteza/NetBeansProjects/vu/src/ui/StudentCourseUI.java</file>
             <file>file:/home/morteza/NetBeansProjects/vu/src/course/Course.java</file>
+            <file>file:/home/morteza/NetBeansProjects/vu/src/course/CourseObj.java</file>
+            <file>file:/home/morteza/NetBeansProjects/vu/src/ui/TeacherCourseUI.java</file>
+            <file>file:/home/morteza/NetBeansProjects/vu/src/ui/ClientUpload.java</file>
+            <file>file:/home/morteza/NetBeansProjects/vu/src/ui/myButton.java</file>
+            <file>file:/home/morteza/NetBeansProjects/vu/src/ui/PersonUI.java</file>
+            <file>file:/home/morteza/NetBeansProjects/vu/src/course/Newsfeed.java</file>
+            <file>file:/home/morteza/NetBeansProjects/vu/src/ui/StudentUI.java</file>
+            <file>file:/home/morteza/NetBeansProjects/vu/src/ui/myTextField.java</file>
+            <file>file:/home/morteza/NetBeansProjects/vu/src/controller/saveCourse.java</file>
             <file>file:/home/morteza/NetBeansProjects/vu/src/users/Student.java</file>
             <file>file:/home/morteza/NetBeansProjects/vu/src/course/Exercise.java</file>
             <file>file:/home/morteza/NetBeansProjects/vu/src/ui/test.java</file>
@@ -18,15 +25,9 @@
             <file>file:/home/morteza/NetBeansProjects/vu/src/ui/TeacherUI.java</file>
             <file>file:/home/morteza/NetBeansProjects/vu/src/vu/Vu.java</file>
             <file>file:/home/morteza/NetBeansProjects/vu/src/ui/myPasswordField.java</file>
-            <file>file:/home/morteza/NetBeansProjects/vu/src/course/CourseObj.java</file>
-            <file>file:/home/morteza/NetBeansProjects/vu/src/ui/TeacherCourseUI.java</file>
-            <file>file:/home/morteza/NetBeansProjects/vu/src/ui/myButton.java</file>
             <file>file:/home/morteza/NetBeansProjects/vu/src/ui/SignInUI.java</file>
-            <file>file:/home/morteza/NetBeansProjects/vu/src/ui/PersonUI.java</file>
             <file>file:/home/morteza/NetBeansProjects/vu/src/ui/SignUpUI.java</file>
             <file>file:/home/morteza/NetBeansProjects/vu/src/file/RWonFile.java</file>
-            <file>file:/home/morteza/NetBeansProjects/vu/src/course/Newsfeed.java</file>
-            <file>file:/home/morteza/NetBeansProjects/vu/src/ui/StudentUI.java</file>
         </group>
     </open-files>
 </project-private>

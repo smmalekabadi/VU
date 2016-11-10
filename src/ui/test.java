@@ -43,18 +43,17 @@ public class test extends JFrame {
         Course cc = new Course("asda");
         Exercise exercis = new Exercise("asdasd", "sadasd", new Date(2014, 1, 20));
         File f = new File("//home//morteza//Desktop//train//file.txt");
-        System.out.println(f.isFile());
+        CourseUI courseUI = new CourseUI("first");
+        courseUI.showNewsfeedExercise(cc);
         exercis.setOneUploadedExecise(f);
         cc.setOneCourseExercise(exercis);
         cc.setOneCourseNewsfeed(new Newsfeed("adasd", "sdadad"));
         c.add(cc);
+        courseUI.showNewsfeedExercise(cc);
         test t;
         t = new test();
-        TeacherUI s = new TeacherUI("morteza", "dasd");
-
-        s.showMyCourse(c);
-        s.showStudentExecrcise(c);
-        t.setpanel(s);
+        
+        t.setpanel(courseUI);
         t.setDefaultCloseOperation(3);
         t.setVisible(true);
         t.setExtendedState(JFrame.MAXIMIZED_BOTH);

@@ -9,13 +9,11 @@ package ui;
  *
  * @author morteza
  */
-public class TeacherCourseUI extends CourseUI{
-    myTextField studentName;
-    myButton addStudent;
-    myButton edit;
-    public TeacherCourseUI(String name) {
+public class TeacherExerciseUI extends CourseObjUI{
+    
+    public TeacherExerciseUI(String name) {
         super(name);
     }
-   
+    
     
 }
