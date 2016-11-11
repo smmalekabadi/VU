@@ -10,12 +10,30 @@ package ui;
  * @author morteza
  */
 public class TeacherCourseUI extends CourseUI{
-    myTextField studentName;
-    myButton addStudent;
-    myButton edit;
+    private myTextField studentName;
+    private myButton addStudent;
+    private myButton removeStudent;
     public TeacherCourseUI(String name) {
         super(name);
     }
-   
+    public void setElement(){
+        studentName= new myTextField();
+        addStudent = new myButton();
+        removeStudent= new myButton();
+        
+        studentName.setSize(300, 35);
+        studentName.setLocation((int) (width / (4)), (int) (height / 1.2));
+        
+        addStudent.setSize(100,35);
+        addStudent.setLocation((int) (width / (2)), (int) (height / 1.2));
+        addStudent.setText("Add");
+        
+        removeStudent.setText("Remove");
+        removeStudent.setLocation((int) (width / (1.7)), (int) (height / 1.2));
+        removeStudent.setSize(100,35);
+        add(studentName);
+        add(addStudent);
+        add(removeStudent);
+    }
     
 }

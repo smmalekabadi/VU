@@ -67,6 +67,7 @@ public class CourseObjUI extends JPanel {
         back.setLocation((int) width - 220, (int) height / 14);
         back.setIcon(new ImageIcon("//home//morteza//NetBeansProjects//vu//pictures//back.png"));
         back.setBorder(null);
+        
         add(CourseObjName);
         add(back);
 
@@ -87,6 +88,20 @@ public class CourseObjUI extends JPanel {
     public JPanel getPanel() {
 
         return this;
+    }
+//-------------------------------------------------------------------------------
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
     }
 
 }

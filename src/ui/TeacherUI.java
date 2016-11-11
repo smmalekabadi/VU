@@ -44,7 +44,7 @@ public class TeacherUI extends PersonUI {
         myList myCourse = new myList();
         myCourse.setListData(course.toArray());
         myCourse.setLocation((int) ((int) width / (1.8)), (int) (height / 4));
-        myCourse.setSize(500, 500);
+        myCourse.setSize(500, 300);
 
         add(myCourse);
 

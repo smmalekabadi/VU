@@ -18,6 +18,7 @@ import java.awt.Toolkit;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import users.Student;
 
 /**
  *
@@ -57,7 +58,7 @@ public class CourseUI extends JPanel {
     public void settingElement() {
         courseName = new myLabel();
         back = new myButton();
-
+        
         courseName.setText(getName());
         courseName.setLocation((int) width / 10, (int) height / 36);
         courseName.setFont(new Font("Serif", Font.PLAIN, 36));
@@ -85,9 +86,20 @@ public class CourseUI extends JPanel {
         }
         myNewsfeedExercise.setListData(courseobj.toArray());
         myNewsfeedExercise.setLocation((int) (width / (12)), (int) (height / 4));
-        myNewsfeedExercise.setSize(500, 500);
+        myNewsfeedExercise.setSize(500, 300);
 
         add(myNewsfeedExercise);
+
+    }
+
+    public void showStudentList(ArrayList<Student> students) {
+        myList studentList = new myList();
+
+        studentList.setListData(students.toArray());
+        studentList.setLocation((int) (width / (1.8)), (int) (height / 4));
+        studentList.setSize(500, 300);
+
+        add(studentList);
 
     }
 

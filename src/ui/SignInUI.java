@@ -102,6 +102,6 @@ public class SignInUI extends JPanel {
         width = screenSize.getWidth();
         height = screenSize.getHeight();
     }
-;
+
 
 }

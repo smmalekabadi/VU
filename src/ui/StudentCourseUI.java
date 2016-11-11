@@ -17,4 +17,13 @@ public class StudentCourseUI extends CourseUI {
         super(name);
     }
 
+    public void setElement() {
+        joinTheCourse = new myButton();
+
+        joinTheCourse.setText("join");
+        joinTheCourse.setLocation((int) (width / (2.5)), (int) (height / 1.2));
+        joinTheCourse.setSize(300,35);
+        add(joinTheCourse);
+    }
+
 }
