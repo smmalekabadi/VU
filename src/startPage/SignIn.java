@@ -7,9 +7,9 @@ package startPage;
 
 import file.RWonFile;
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import ui.SignInUI;
 
 /**
  *
@@ -17,14 +17,16 @@ import java.util.logging.Logger;
  */
 public class SignIn {
 
-    private String username;
-    private String password;
+    private static String username;
+    private static String password;
+    private static SignInUI signInUI;
 
     public SignIn() {
+        signInUI = new SignInUI();
 
     }
 
-    private void verfiy() {
+    private static void verfiy() {
         ArrayList<String> allUser = null;
 
         try {
@@ -46,15 +48,14 @@ public class SignIn {
         }
         if (sw == 0) {
             System.out.println("pass or user is wrong");
-            scan();
+
         }
 
     }
 
-    public void scan() {
-        Scanner sc1 = new Scanner(System.in);
-        username = sc1.nextLine();
-        password = sc1.nextLine();
+    public static void scan() {
+        username = signInUI.getUsername();
+        password = signInUI.getPassword();
         verfiy();
     }
 
@@ -85,6 +86,20 @@ public class SignIn {
      */
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    /**
+     * @return the signInUI
+     */
+    public SignInUI getSignInUI() {
+        return signInUI;
+    }
+
+    /**
+     * @param signInUI the signInUI to set
+     */
+    public void setSignInUI(SignInUI signInUI) {
+        this.signInUI = signInUI;
     }
 
 }

@@ -20,40 +20,42 @@ import javax.swing.ListModel;
 public class StudentUI extends PersonUI {
 
     //private myList courseList;
-
     public StudentUI(String name, String username) {
         super(name);
+        showCourses(null);
+        showNewseedExercise(null);
     }
 
     public void showCourses(ArrayList<Course> course) {
-        myList myCourse = new myList();
-        myCourse.setListData(course.toArray());
-        myCourse.setLocation((int) ((int) width / (1.8)), (int) (height / 4));
-        myCourse.setSize(500, 500);
+        if (course != null && course.isEmpty()) {
+            myList myCourse = new myList();
+            myCourse.setListData(course.toArray());
+            myCourse.setLocation((int) ((int) width / (1.8)), (int) (height / 4));
+            myCourse.setSize(500, 500);
 
-        add(myCourse);
+            add(myCourse);
+        }
     }
 
     public void showNewseedExercise(ArrayList<Course> course) {
-        myList myNewsfeedExercise = new myList();
-        ArrayList<CourseObj> courseobj = new ArrayList<CourseObj>();
-        for (Course course1 : course) {
-            for (Exercise ex : course1.getCourseExercise()) {
-                courseobj.add(ex);
+        if (course != null && course.isEmpty()) {
+            myList myNewsfeedExercise = new myList();
+            ArrayList<CourseObj> courseobj = new ArrayList<CourseObj>();
+            for (Course course1 : course) {
+                for (Exercise ex : course1.getCourseExercise()) {
+                    courseobj.add(ex);
+                }
+                for (Newsfeed newsfeed : course1.getCourseNewsFeed()) {
+                    courseobj.add(newsfeed);
+                }
+
             }
-            for (Newsfeed newsfeed : course1.getCourseNewsFeed()) {
-                courseobj.add(newsfeed);
-            }
+            myNewsfeedExercise.setListData(courseobj.toArray());
+            myNewsfeedExercise.setLocation((int) ((int) width / (12)), (int) (height / 4));
+            myNewsfeedExercise.setSize(500, 500);
+
+            add(myNewsfeedExercise);
 
         }
-        myNewsfeedExercise.setListData(courseobj.toArray());
-        myNewsfeedExercise.setLocation((int) ((int) width / (12)), (int) (height / 4));
-        myNewsfeedExercise.setSize(500, 500);
-
-        add(myNewsfeedExercise);
-
     }
-
-  
-
 }

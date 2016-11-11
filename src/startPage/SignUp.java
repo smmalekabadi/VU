@@ -6,18 +6,17 @@
 package startPage;
 
 import file.RWonFile;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import ui.SignUpUI;
+import ui.StudentUI;
+import ui.TeacherUI;
+import users.Student;
+import users.Teacher;
+import vu.MainFrame;
 
 /**
  *
@@ -25,16 +24,18 @@ import java.util.logging.Logger;
  */
 public class SignUp {
 
-    private String name;
-    private String username;
-    private String password;
-    private String email;
+    private static String name;
+    private static String username;
+    private static String password;
+    private static String email;
+    private static SignUpUI signUpUI;
 
     public SignUp() {
-        scan();
+
     }
 
-    public void verfiy() {
+    public static void verfiy() {
+
         int isOK = 0;
         ArrayList<String> allUser = null;
         try {
@@ -42,29 +43,42 @@ public class SignUp {
         } catch (Exception ex) {
             Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
         }
+
         for (int i = 0; i < allUser.size(); i++) {
             if (allUser.get(i).split("#")[1].equals(username)) {
                 isOK = 1;//already exists user 
+                JOptionPane.showMessageDialog(null, "this username already exites", "vu", JOptionPane.ERROR_MESSAGE);
             }
         }
-       
+
         if (!email.contains("@")) {
             isOK = 1;//email is not real
         }
+        System.out.println(isOK);
         if (isOK == 1) {
-            scan();
+            JOptionPane.showMessageDialog(null, "EMAIL is not corrct", "vu", JOptionPane.ERROR_MESSAGE);
+        } else {
+            RWonFile.appendOnFile(name + "#" + username + "#" + password + "#" + email, "filename.txt");
+            MainFrame.getInstance().getContentPane().removeAll();
+            if (email.contains("@um.ac.ir")) {
+                Teacher newTeacher = new Teacher(name, username);
+                MainFrame.getInstance().getContentPane().add(newTeacher.getTeacherUI());
+                MainFrame.getInstance().getContentPane().validate();
+            } else {
+                Student student = new Student(name, username);
+                MainFrame.getInstance().getContentPane().add(student.getStudentUI());
+                MainFrame.getInstance().getContentPane().validate();
+            }
+
         }
-        else 
-           RWonFile.appendOnFile(name+"#"+username+"#"+password+"#"+email,"filename.txt");
 
     }
 
-    public void scan() {
-        Scanner sc1 = new Scanner(System.in);
-        name = sc1.nextLine();
-        username = sc1.nextLine();
-        password = sc1.nextLine();
-        email = sc1.nextLine();
+    public static void scan(SignUpUI signUpUI) {
+        name = signUpUI.getName();
+        username = signUpUI.getUsername();
+        password = signUpUI.getPassword();
+        email = signUpUI.getEmail();
         verfiy();
     }
 //-------------------------------------------------------------------------------

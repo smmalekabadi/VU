@@ -5,7 +5,7 @@
  */
 package course;
 
-import controller.saveCourse;
+import save.saveCourse;
 import java.util.ArrayList;
 import users.Student;
 

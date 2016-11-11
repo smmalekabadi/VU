@@ -5,9 +5,10 @@
  */
 package users;
 
-import controller.saveCourse;
+import save.saveCourse;
 import course.Course;
 import java.util.ArrayList;
+import ui.StudentUI;
 
 /**
  *
@@ -17,9 +18,10 @@ public class Student extends Person {
 
     private ArrayList<Course> AllCourse;
     private ArrayList<Course> myCourse;
-
+    private StudentUI studentUI;
     public Student(String name, String username) {
         super(name, username);
+        studentUI= new StudentUI(name, username);
     }
 
     public void coureList() {
@@ -60,5 +62,19 @@ public class Student extends Person {
      */
     public void setMyCourse(ArrayList<Course> myCourse) {
         this.myCourse = myCourse;
+    }
+
+    /**
+     * @return the studentUI
+     */
+    public StudentUI getStudentUI() {
+        return studentUI;
+    }
+
+    /**
+     * @param studentUI the studentUI to set
+     */
+    public void setStudentUI(StudentUI studentUI) {
+        this.studentUI = studentUI;
     }
 }

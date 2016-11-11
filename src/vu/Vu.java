@@ -5,21 +5,26 @@
  */
 package vu;
 
-import file.RWonFile;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 import startPage.SignIn;
-import startPage.SignUp;
-import users.Person;
 
 /**
  *
  * @author morteza
  */
-public class Vu {
+public class Vu extends JFrame {
 
     public static void main(String[] args) {
-        //SignUp su= new SignUp();
+
         SignIn si = new SignIn();
-       
+
+        MainFrame mf = MainFrame.getInstance();
+        mf.add(si.getSignInUI());
+        mf.setDefaultCloseOperation(3);
+        mf.setVisible(true);
+        mf.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
     }
-    
+
 }

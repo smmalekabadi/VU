@@ -1,4 +1,5 @@
-##asdsd@#dasda@
-sssd#sdfsdf#sdfs#sfds@
-admin#admin#admin#admin@admin
-admin#admin2#admin#admin@
+admin#admin#admin#admin
+NAME#USERNAME#PASSWORD#EMAIL@email
+NAME#USERNAME2#PASSWORD#EMAIL@email
+NAME#USERNAME3#PASSWORD#EMAIL@email
+NAME#USERNAME22#PASSWORD#EMAIL@email

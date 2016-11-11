@@ -5,21 +5,21 @@
  */
 package ui;
 
-import java.awt.Color;
+import controller.Contoller;
+
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Label;
+
 import java.awt.MediaTracker;
 import java.awt.Toolkit;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
-import javax.swing.plaf.basic.BasicArrowButton;
+import startPage.SignIn;
+import vu.MainFrame;
 
 /**
  *
@@ -29,7 +29,7 @@ public class SignInUI extends JPanel {
 
     private myTextField username;
     private myPasswordField password;
-    private myButton submit;
+    private myButton signIn;
     private myButton signUp;
     private myLabel virtualUniversity;
     Image bgimg;
@@ -48,29 +48,20 @@ public class SignInUI extends JPanel {
         }
         getScreenSize();
         settingElement();
-        new test().setpanel(this);
+
     }
 
     public void settingElement() {
         username = new myTextField();
         password = new myPasswordField();
-        submit = new myButton();
+        signIn = new myButton();
         signUp = new myButton();
         virtualUniversity = new myLabel();
-        
-        
+
         virtualUniversity.setText("Virtual University");
         virtualUniversity.setLocation((int) width / 2 - 220, (int) height / 2 - 200);
         virtualUniversity.setSize(450, 100);
         virtualUniversity.setFont(new Font("Serif", Font.PLAIN, 48));
-
-        signUp.setText("sign up");
-        signUp.setLocation((int) width / 2 - 150, (int) height / 2 + 50);
-        signUp.setSize(300, 35);
-
-        submit.setText("sign in");
-        submit.setLocation((int) width / 2 - 150, (int) height / 2);
-        submit.setSize(300, 35);
 
         password.setText("password");
         password.setLocation((int) width / 2 - 150, (int) height / 2 - 50);
@@ -82,9 +73,21 @@ public class SignInUI extends JPanel {
         username.setSize(300, 35);
         username.setBorder(BorderFactory.createCompoundBorder(username.getBorder(), BorderFactory.createEmptyBorder(5, 8, 5, 5)));
 
+        signUp.setText("sign up");
+        signUp.setLocation((int) width / 2 - 150, (int) height / 2 + 50);
+        signUp.setSize(300, 35);
+        signUp.addMouseListener(new Controller());
+        signUp.setName("signUp");
+
+        signIn.setText("sign in");
+        signIn.setLocation((int) width / 2 - 150, (int) height / 2);
+        signIn.setSize(300, 35);
+        signIn.setName("signIn");
+        signIn.addMouseListener(new Controller());
+
         this.add(virtualUniversity);
         this.add(signUp);
-        this.add(submit);
+        this.add(signIn);
         this.add(username);
         this.add(password);
     }
@@ -103,5 +106,56 @@ public class SignInUI extends JPanel {
         height = screenSize.getHeight();
     }
 
+    public String getUsername() {
+
+        return username.getText();
+    }
+
+    public String getPassword() {
+
+        return password.getText();
+    }
+
+    public void visibel() {
+        this.setVisible(false);
+    }
+
+    private class Controller implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+
+            if (e.getComponent().getName().equals("signIn")) {
+                SignIn.scan();
+            } else {
+                visibel();
+                MainFrame.getInstance().getContentPane().removeAll();
+                MainFrame.getInstance().getContentPane().add(new SignUpUI());
+
+            }
+
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+
+        }
+
+    }
 
 }

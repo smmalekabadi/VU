@@ -10,6 +10,7 @@ import course.Exercise;
 import course.Newsfeed;
 import java.util.ArrayList;
 import java.util.Date;
+import ui.TeacherUI;
 
 /**
  *
@@ -18,9 +19,10 @@ import java.util.Date;
 public class Teacher extends Person {
 
     ArrayList<course.Course> myCourses = null;
-
+    private TeacherUI teacherUI;
     public Teacher(String name, String username) {
         super(name, username);
+        teacherUI= new TeacherUI(name, username);
     }
 
     public void createCourse(String courseName) {
@@ -46,5 +48,19 @@ public class Teacher extends Person {
     public void editNewsfeed(Newsfeed newsfeed ,String decription){
         newsfeed.setDescription(decription);
     
+    }
+
+    /**
+     * @return the teacherUI
+     */
+    public TeacherUI getTeacherUI() {
+        return teacherUI;
+    }
+
+    /**
+     * @param teacherUI the teacherUI to set
+     */
+    public void setTeacherUI(TeacherUI teacherUI) {
+        this.teacherUI = teacherUI;
     }
 }
