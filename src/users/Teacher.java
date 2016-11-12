@@ -18,20 +18,20 @@ import ui.TeacherUI;
  */
 public class Teacher extends Person {
 
-    ArrayList<course.Course> myCourses = null;
+    private ArrayList<course.Course> myCourses = new  ArrayList<Course>();
     private TeacherUI teacherUI;
     public Teacher(String name, String username) {
         super(name, username);
-        teacherUI= new TeacherUI(name, username);
+        teacherUI= new TeacherUI(name, username, this);
     }
 
     public void createCourse(String courseName) {
-        myCourses.add(new Course(courseName));
+        getMyCourses().add(new Course(courseName));
         
     }
 
     public void deleteCourse(Course course) {
-        myCourses.remove(course);
+        getMyCourses().remove(course);
                             
     }
 
@@ -49,7 +49,7 @@ public class Teacher extends Person {
         newsfeed.setDescription(decription);
     
     }
-
+//-------------------------------------------------------------------------------
     /**
      * @return the teacherUI
      */
@@ -62,5 +62,24 @@ public class Teacher extends Person {
      */
     public void setTeacherUI(TeacherUI teacherUI) {
         this.teacherUI = teacherUI;
+    }
+    public void setOneCourse(Course course){
+        myCourses.add(course);
+        System.out.println(myCourses.size());
+        teacherUI.showMyCourse(myCourses);
+    
+    }
+    /**
+     * @return the myCourses
+     */
+    public ArrayList<course.Course> getMyCourses() {
+        return myCourses;
+    }
+    
+    /**
+     * @param myCourses the myCourses to set
+     */
+    public void setMyCourses(ArrayList<course.Course> myCourses) {
+        this.myCourses = myCourses;
     }
 }

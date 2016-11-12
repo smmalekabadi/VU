@@ -12,7 +12,7 @@ import course.Course;
  * @author morteza
  */
 public final class saveCourse {
-    private static ArrayList<Course> allCourse=null;
+    private static ArrayList<Course> allCourse=new ArrayList<Course>();
     
     
     

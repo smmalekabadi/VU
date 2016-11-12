@@ -12,16 +12,18 @@ import course.Newsfeed;
 import java.util.ArrayList;
 import javax.swing.JList;
 import javax.swing.ListModel;
+import users.Student;
 
 /**
  *
  * @author morteza
  */
 public class StudentUI extends PersonUI {
-
-    //private myList courseList;
-    public StudentUI(String name, String username) {
+    
+    Student student;
+    public StudentUI(String name, String username,Student student) {
         super(name);
+        this.student= student;
         showCourses(null);
         showNewseedExercise(null);
     }

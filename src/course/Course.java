@@ -22,9 +22,13 @@ public class Course {
     
     public Course(String courseName) {
         this.courseName = courseName;
-        //saveCourse.addOnecourse(this);
+        saveCourse.addOnecourse(this);
     }
-
+    @Override
+    public String toString(){
+    
+    return courseName;
+    }
 //-------------------------------------------------------------------------------
     /**
      * @return the courseName

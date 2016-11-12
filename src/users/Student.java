@@ -21,7 +21,7 @@ public class Student extends Person {
     private StudentUI studentUI;
     public Student(String name, String username) {
         super(name, username);
-        studentUI= new StudentUI(name, username);
+        studentUI= new StudentUI(name, username,this);
     }
 
     public void coureList() {
