@@ -40,7 +40,7 @@ public class test extends JFrame {
     public static void main(String[] args) {
 
         c = new ArrayList<Course>();
-        Course cc = new Course("asda");
+        //Course cc = new Course("asda");
         Exercise exercis = new Exercise("asdasd", "sadasd", new Date(2014, 1, 20));
         SettingUI te= new SettingUI("mort");
         
@@ -59,7 +59,7 @@ public class test extends JFrame {
     }
 
     public void add() {
-        Course c1 = new Course("dasd");
-        c.add(c1);
+        //Course c1 = new Course("dasd");
+        //c.add(c1);
     }
 }

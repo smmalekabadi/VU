@@ -21,11 +21,11 @@ import users.Student;
 public class StudentUI extends PersonUI {
     
     Student student;
-    public StudentUI(String name, String username,Student student) {
-        super(name);
+    public StudentUI(String username,Student student) {
+        super(username);
         this.student= student;
-        showCourses(null);
-        showNewseedExercise(null);
+        showCourses(student.getMyCourse());
+        showNewseedExercise(student.getMyCourse());
     }
 
     public void showCourses(ArrayList<Course> course) {

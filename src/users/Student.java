@@ -5,7 +5,7 @@
  */
 package users;
 
-import save.saveCourse;
+import save.Save;
 import course.Course;
 import java.util.ArrayList;
 import ui.StudentUI;
@@ -21,7 +21,7 @@ public class Student extends Person {
     private StudentUI studentUI;
     public Student(String name, String username) {
         super(name, username);
-        studentUI= new StudentUI(name, username,this);
+        studentUI= new StudentUI(username,this);
     }
 
     public void coureList() {

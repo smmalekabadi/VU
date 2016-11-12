@@ -6,6 +6,7 @@
 package ui;
 
 import javax.swing.JList;
+import javax.swing.ListSelectionModel;
 
 /**
  *
@@ -14,6 +15,7 @@ import javax.swing.JList;
 public class myList extends JList {
 
     public myList() {
+        this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         change();
     }
 

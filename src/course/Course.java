@@ -5,8 +5,11 @@
  */
 package course;
 
-import save.saveCourse;
+import save.Save;
 import java.util.ArrayList;
+import ui.CourseUI;
+import ui.StudentCourseUI;
+import ui.TeacherCourseUI;
 import users.Student;
 
 /**
@@ -16,20 +19,29 @@ import users.Student;
 public class Course {
 
     private String courseName;
-   
     private ArrayList<Exercise> courseExercise = new ArrayList<>();
     private ArrayList<Newsfeed> courseNewsFeed = new ArrayList<>();
-    
-    public Course(String courseName) {
+    private CourseUI courseUI;
+    public static final int TEACHER_CODE = 1;
+    public static final int STUDENT_CODE = 2;
+
+    public Course(String courseName, int SorTCode) {
         this.courseName = courseName;
-        saveCourse.addOnecourse(this);
+        Save.addOnecourse(this);
+        if (SorTCode == 1) {
+            courseUI = new TeacherCourseUI(courseName, this);
+        } else {
+             courseUI = new StudentCourseUI(courseName, this);
+        }
     }
+
     @Override
-    public String toString(){
-    
-    return courseName;
+    public String toString() {
+
+        return getCourseName();
     }
 //-------------------------------------------------------------------------------
+
     /**
      * @return the courseName
      */
@@ -44,16 +56,15 @@ public class Course {
         this.courseName = courseName;
     }
 
- 
-
     /**
      * @return the courseExercise
      */
     public ArrayList<Exercise> getCourseExercise() {
         return courseExercise;
     }
+
     /**
-     * @param newExercise 
+     * @param newExercise
      */
     public void setOneCourseExercise(Exercise newExercise) {
         courseExercise.add(newExercise);
@@ -72,13 +83,29 @@ public class Course {
     public ArrayList<Newsfeed> getCourseNewsFeed() {
         return courseNewsFeed;
     }
-    public void setOneCourseNewsfeed(Newsfeed newsfeed){
+
+    public void setOneCourseNewsfeed(Newsfeed newsfeed) {
         this.courseNewsFeed.add(newsfeed);
     }
+
     /**
      * @param courseNewsFeed the courseNewsFeed to set
      */
     public void setCourseNewsFeed(ArrayList<Newsfeed> courseNewsFeed) {
         this.courseNewsFeed = courseNewsFeed;
+    }
+
+    /**
+     * @return the courseUI
+     */
+    public CourseUI getCourseUI() {
+        return courseUI;
+    }
+
+    /**
+     * @param courseUI the courseUI to set
+     */
+    public void setCourseUI(CourseUI courseUI) {
+        this.courseUI = courseUI;
     }
 }

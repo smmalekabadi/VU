@@ -10,7 +10,11 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.MediaTracker;
 import java.awt.Toolkit;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.JPanel;
+import startPage.SignIn;
+import vu.MainFrame;
 
 /**
  *
@@ -22,6 +26,7 @@ public class SettingUI extends JPanel {
     private myTextField username;
     private myTextField password;
     private myTextField email;
+    private myButton save;
     private String username1;
     Image bgimg;
     double width;
@@ -29,6 +34,7 @@ public class SettingUI extends JPanel {
 
     public SettingUI(String username1) {
         this.username1= username1;
+        
         setLayout(null);
         MediaTracker mt = new MediaTracker(this);
         bgimg = Toolkit.getDefaultToolkit().getImage("//home//morteza//NetBeansProjects//vu//pictures//background4.jpg");
@@ -62,6 +68,7 @@ public class SettingUI extends JPanel {
         username = new myTextField();
         password = new myTextField();
         email = new myTextField();
+        save = new myButton();
         
         name.setText("new name");
         name.setLocation((int) (width / 2.5) - 15, (int) height / 5);
@@ -79,10 +86,46 @@ public class SettingUI extends JPanel {
         email.setLocation((int) (width / 2.5) - 15, (int) (height / 2.5));
         email.setSize(350, 35);
         
+        save.setText("save");
+        save.setSize(350, 35);
+        save.setLocation((int) (width / 2.5) - 15, (int) (height / 2.2));
+        save.setName("save");
+        save.addMouseListener(new Controller());
         add(name);
         add(username);
         add(password);
         add(email);
+        add(save);
+    }
+     private class Controller implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            if (e.getComponent().getName().equals("save")) {
+                
+            }
+
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+
+        }
 
     }
 

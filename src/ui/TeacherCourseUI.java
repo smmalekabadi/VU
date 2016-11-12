@@ -5,6 +5,8 @@
  */
 package ui;
 
+import course.Course;
+
 /**
  *
  * @author morteza
@@ -13,8 +15,9 @@ public class TeacherCourseUI extends CourseUI{
     private myTextField studentName;
     private myButton addStudent;
     private myButton removeStudent;
-    public TeacherCourseUI(String name) {
-        super(name);
+    public TeacherCourseUI(String name,Course course) {
+        super(name,course);
+        
     }
     public void setElement(){
         studentName= new myTextField();

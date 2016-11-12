@@ -10,6 +10,7 @@ import course.Exercise;
 import course.Newsfeed;
 import java.util.ArrayList;
 import java.util.Date;
+import save.Save;
 import ui.TeacherUI;
 
 /**
@@ -18,38 +19,46 @@ import ui.TeacherUI;
  */
 public class Teacher extends Person {
 
-    private ArrayList<course.Course> myCourses = new  ArrayList<Course>();
+    private ArrayList<course.Course> myCourses = new ArrayList<Course>();
     private TeacherUI teacherUI;
+
     public Teacher(String name, String username) {
         super(name, username);
-        teacherUI= new TeacherUI(name, username, this);
+        Save.addOneTeacher(this);
+
+        teacherUI = new TeacherUI(username, this);
+
     }
 
     public void createCourse(String courseName) {
-        getMyCourses().add(new Course(courseName));
-        
+        getMyCourses().add(new Course(courseName, Course.TEACHER_CODE));
+
     }
 
     public void deleteCourse(Course course) {
         getMyCourses().remove(course);
-                            
+
     }
 
-    public void createExercise(Course course,String name,String description ,Date date){
+    public void createExercise(Course course, String name, String description, Date date) {
         course.setOneCourseExercise(new Exercise(name, description, date));
-    
+
     }
-    public void createNewsfeed(Course course, String subjet ,String description){
+
+    public void createNewsfeed(Course course, String subjet, String description) {
         course.setOneCourseNewsfeed(new Newsfeed(subjet, description));
     }
-    public void editExercise(Exercise exercise,Date date){
+
+    public void editExercise(Exercise exercise, Date date) {
         exercise.setDate(date);
     }
-    public void editNewsfeed(Newsfeed newsfeed ,String decription){
+
+    public void editNewsfeed(Newsfeed newsfeed, String decription) {
         newsfeed.setDescription(decription);
-    
+
     }
 //-------------------------------------------------------------------------------
+
     /**
      * @return the teacherUI
      */
@@ -63,19 +72,20 @@ public class Teacher extends Person {
     public void setTeacherUI(TeacherUI teacherUI) {
         this.teacherUI = teacherUI;
     }
-    public void setOneCourse(Course course){
+
+    public void setOneCourse(Course course) {
         myCourses.add(course);
-        System.out.println(myCourses.size());
         teacherUI.showMyCourse(myCourses);
-    
+
     }
+
     /**
      * @return the myCourses
      */
     public ArrayList<course.Course> getMyCourses() {
         return myCourses;
     }
-    
+
     /**
      * @param myCourses the myCourses to set
      */

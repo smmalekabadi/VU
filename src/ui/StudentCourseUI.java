@@ -5,6 +5,8 @@
  */
 package ui;
 
+import course.Course;
+
 /**
  *
  * @author morteza
@@ -13,8 +15,8 @@ public class StudentCourseUI extends CourseUI {
 
     private myButton joinTheCourse;
 
-    public StudentCourseUI(String name) {
-        super(name);
+    public StudentCourseUI(String name,Course course) {
+        super(name, course);
     }
 
     public void setElement() {

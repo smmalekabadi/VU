@@ -33,8 +33,8 @@ public class CourseUI extends JPanel {
     double height;
 
     Image bgimg;
-
-    public CourseUI(String name) {
+    
+    public CourseUI(String name,Course course) {
         this.name = name;
         setLayout(null);
         MediaTracker mt = new MediaTracker(this);
