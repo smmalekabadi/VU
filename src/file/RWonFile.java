@@ -82,7 +82,7 @@ public final class RWonFile {
         }
     }
 
-    public void deleteLine(String username) throws Exception {
+    public static void deleteLine(String username) throws Exception {
         ArrayList<String> file = new ArrayList<String>();
         file = ReadFromfile("filename.txt");
         for (String string : file) {
@@ -109,7 +109,7 @@ public final class RWonFile {
 
     }
 
-    public String[] getOneLine(String string) throws Exception {
+    public static String[] getOneLine(String string) throws Exception {
         ArrayList<String> arrayList = new ArrayList<String>();
         arrayList = ReadFromfile("filename.txt");
         for (String string1 : arrayList) {
