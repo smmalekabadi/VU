@@ -85,9 +85,13 @@ public final class RWonFile {
     public static void deleteLine(String username) throws Exception {
         ArrayList<String> file = new ArrayList<String>();
         file = ReadFromfile("filename.txt");
-        for (String string : file) {
-            if (string.split("#")[1].equals(username));
-            file.remove(string);
+
+        for (int i = 0; i < file.size(); i++) {
+
+            if (file.get(i).split("#")[1].equals(username)) {
+                file.remove(i);
+            }
+
         }
 
         Writer writer = null;

@@ -38,20 +38,20 @@ public class test extends JFrame {
     static ArrayList<Course> c = null;
 
     public static void main(String[] args) {
-
-        c = new ArrayList<Course>();
-        //Course cc = new Course("asda");
-        Exercise exercis = new Exercise("asdasd", "sadasd", new Date(2014, 1, 20));
-        SettingUI te= new SettingUI("mort");
-        
-        
-        
-        test t;
-        t = new test();
-        t.setpanel(te);
-        t.setDefaultCloseOperation(3);
-        t.setVisible(true);
-        t.setExtendedState(JFrame.MAXIMIZED_BOTH);
+//
+//        c = new ArrayList<Course>();
+//        //Course cc = new Course("asda");
+//        Exercise exercis = new Exercise("asdasd", "sadasd", new Date(2014, 1, 20));
+//        SettingUI te= new SettingUI("mort");
+//        
+//        
+//        
+//        test t;
+//        t = new test();
+//        t.setpanel(te);
+//        t.setDefaultCloseOperation(3);
+//        t.setVisible(true);
+//        t.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     public void setpanel(JPanel jPanel) {

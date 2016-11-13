@@ -16,6 +16,8 @@ import java.awt.MediaTracker;
 import java.awt.Toolkit;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -108,9 +110,13 @@ public class PersonUI extends JPanel {
                 MainFrame.getInstance().getContentPane().validate();
                 MainFrame.getInstance().getContentPane().invalidate();
                 MainFrame.getInstance().getContentPane().repaint();
-            } else if (e.getComponent().getName().equals("setting")) {
+            } else if (e.getComponent().getName().equals("Setting")) {
                 MainFrame.getInstance().getContentPane().removeAll();
-                //MainFrame.getInstance().getContentPane().add(new SettingUI());
+                try {
+                    MainFrame.getInstance().getContentPane().add(new SettingUI(name));
+                } catch (Exception ex) {
+                    Logger.getLogger(PersonUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 MainFrame.getInstance().getContentPane().validate();
                 MainFrame.getInstance().getContentPane().invalidate();
                 MainFrame.getInstance().getContentPane().repaint();

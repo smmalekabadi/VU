@@ -37,7 +37,6 @@ public class SettingUI extends JPanel {
 
     public SettingUI(String username1) throws Exception {
         this.username1 = username1;
-
         setLayout(null);
         MediaTracker mt = new MediaTracker(this);
         bgimg = Toolkit.getDefaultToolkit().getImage("//home//morteza//NetBeansProjects//vu//pictures//background4.jpg");
@@ -94,6 +93,7 @@ public class SettingUI extends JPanel {
         save.setLocation((int) (width / 2.5) - 15, (int) (height / 2.2));
         save.setName("save");
         save.addMouseListener(new Controller());
+        
         add(name);
         add(username);
         add(password);
@@ -107,11 +107,19 @@ public class SettingUI extends JPanel {
         public void mouseClicked(MouseEvent e) {
             if (e.getComponent().getName().equals("save")) {
                 try {
+                    System.out.println(RWonFile.ReadFromfile("filename.txt").get(0));
                     RWonFile.deleteLine(username1);
-                    RWonFile.appendOnFile(name.getName()+"#"+username.getName()+"#"+password.getName()+"#"+email.getName(), "filename.txt");
+                    RWonFile.appendOnFile(name.getText()+ "#" + username.getText()+ "#" + password.getText()+ "#" + email.getText(), "filename.txt");
                 } catch (Exception ex) {
                     Logger.getLogger(SettingUI.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                SignIn si = new SignIn();
+                MainFrame.getInstance().getContentPane().removeAll();
+                MainFrame.getInstance().getContentPane().add(si.getSignInUI());
+                MainFrame.getInstance().getContentPane().validate();
+                MainFrame.getInstance().getContentPane().invalidate();
+                MainFrame.getInstance().getContentPane().repaint();
+                
             }
 
         }
