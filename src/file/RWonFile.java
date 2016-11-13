@@ -23,8 +23,6 @@ import java.util.Arrays;
  */
 public final class RWonFile {
 
-    
-
     public static ArrayList ReadFromfile(String path) throws Exception {
         FileReader fr = null;
         BufferedReader br = null;
@@ -57,7 +55,7 @@ public final class RWonFile {
         return counter;
     }
 
-    public static void appendOnFile(String append,String path) {
+    public static void appendOnFile(String append, String path) {
         ArrayList<String> readabl = null;
         try {
             readabl = ReadFromfile(path);
@@ -71,7 +69,7 @@ public final class RWonFile {
             writer = new BufferedWriter(new OutputStreamWriter(
                     new FileOutputStream("filename.txt"), "utf-8"));
             for (int i = 0; i < readabl.size(); i++) {
-                writer.write(readabl.get(i)+"\n");
+                writer.write(readabl.get(i) + "\n");
             }
 
         } catch (IOException ex) {
@@ -83,4 +81,43 @@ public final class RWonFile {
             }
         }
     }
+
+    public void deleteLine(String username) throws Exception {
+        ArrayList<String> file = new ArrayList<String>();
+        file = ReadFromfile("filename.txt");
+        for (String string : file) {
+            if (string.split("#")[1].equals(username));
+            file.remove(string);
+        }
+
+        Writer writer = null;
+        try {
+            writer = new BufferedWriter(new OutputStreamWriter(
+                    new FileOutputStream("filename.txt"), "utf-8"));
+            for (int i = 0; i < file.size(); i++) {
+                writer.write(file.get(i) + "\n");
+            }
+
+        } catch (IOException ex) {
+            // report
+        } finally {
+            try {
+                writer.close();
+            } catch (Exception ex) {/*ignore*/
+            }
+        }
+
+    }
+
+    public String[] getOneLine(String string) throws Exception {
+        ArrayList<String> arrayList = new ArrayList<String>();
+        arrayList = ReadFromfile("filename.txt");
+        for (String string1 : arrayList) {
+            if (string1.split("#")[1].equals(string)) {
+                return string1.split("#");
+            }
+        }
+        return null;
+    }
+
 }
