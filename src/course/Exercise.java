@@ -9,6 +9,9 @@ import java.io.File;
 import java.util.Date;
 import java.time.*;
 import java.util.ArrayList;
+import ui.CourseObjUI;
+import ui.StudentExerciseUI;
+import ui.TeacherExerciseUI;
 
 /**
  *
@@ -18,10 +21,18 @@ public class Exercise extends CourseObj {
 
     private Date date;
     private ArrayList<File> uploadedExecise = new ArrayList<File>();
+    private CourseObjUI courseObjUI;
 
-    public Exercise(String name, String description, Date date) {
+    public Exercise(String name, String description, Date date, int SorTCode) {
         super(name, description);
         this.date = date;
+        if (SorTCode == 1) {
+            courseObjUI = new TeacherExerciseUI(name, this);
+            
+        }
+        else 
+            courseObjUI= new StudentExerciseUI(name, this);
+
     }
 //-------------------------------------------------------------------------------
 
@@ -62,6 +73,20 @@ public class Exercise extends CourseObj {
     public void setOneUploadedExecise(File f) {
         uploadedExecise.add(f);
 
+    }
+
+    /**
+     * @return the courseObjUI
+     */
+    public CourseObjUI getCourseObjUI() {
+        return courseObjUI;
+    }
+
+    /**
+     * @param courseObjUI the courseObjUI to set
+     */
+    public void setCourseObjUI(CourseObjUI courseObjUI) {
+        this.courseObjUI = courseObjUI;
     }
 
 }

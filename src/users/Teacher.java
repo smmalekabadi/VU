@@ -6,6 +6,7 @@
 package users;
 
 import course.Course;
+import course.CourseObj;
 import course.Exercise;
 import course.Newsfeed;
 import java.util.ArrayList;
@@ -40,7 +41,7 @@ public class Teacher extends Person {
     }
 
     public void createExercise(Course course, String name, String description, Date date) {
-        course.setOneCourseExercise(new Exercise(name, description, date));
+        course.setOneCourseExercise(new Exercise(name, description, date,CourseObj.TEACHER_CODE));
 
     }
 

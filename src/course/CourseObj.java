@@ -13,10 +13,13 @@ public class CourseObj {
 
     private String name;
     private String description;
+    public static final int TEACHER_CODE = 1;
+    public static final int STUDENT_CODE = 2;
 
     public CourseObj(String name, String description) {
         this.name = name;
         this.description = description;
+        
     }
 
     /**
