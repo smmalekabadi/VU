@@ -7,6 +7,15 @@ package ui;
 
 import course.Exercise;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.net.Socket;
+import javax.swing.JFileChooser;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
@@ -14,8 +23,9 @@ import javax.swing.border.LineBorder;
  *
  * @author morteza
  */
-public class StudentExerciseUI extends CourseObjUI {
+public class StudentExerciseUI extends CourseObjUI implements ActionListener {
 
+    private JFileChooser fc;
     private myLabel name;
     private myLabel description;
     private myLabel date;
@@ -23,10 +33,37 @@ public class StudentExerciseUI extends CourseObjUI {
     private myButton browse;
     private myButton send;
     private Exercise exercise;
+    private FileInputStream in;
+    private Socket s;
+    private DataOutputStream dout;
+    private DataInputStream din;
+    private int i;
 
     public StudentExerciseUI(String name, Exercise exercise) {
         super(name);
         this.exercise = exercise;
+        try {
+            s = new Socket("localhost", 10);
+            dout = new DataOutputStream(s.getOutputStream());
+            din = new DataInputStream(s.getInputStream());
+            send();
+        } catch (Exception e) {
+        }
+    }
+
+    public void copy() throws IOException {
+        File f1 = fc.getSelectedFile();
+        path.setText(f1.getAbsolutePath());
+        in = new FileInputStream(f1.getAbsolutePath());
+        while ((i = in.read()) != -1) {
+            System.out.print(i);
+        }
+    }
+
+    public void send() throws IOException {
+        dout.write(i);
+        dout.flush();
+
     }
 
     public void setElement() {
@@ -58,16 +95,33 @@ public class StudentExerciseUI extends CourseObjUI {
         browse.setText("browse");
         browse.setLocation((int) (width / 2.5) - 15, (int) (height / 1.7));
         browse.setSize(350, 35);
+        browse.addActionListener(this);
 
         send.setText("send");
         send.setLocation((int) (width / 2.5) - 15, (int) (height / 1.6));
         send.setSize(350, 35);
-
+        send.addActionListener(this);
         add(name);
         add(description);
         add(date);
         add(path);
         add(browse);
         add(send);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        try {
+            if (e.getSource() == browse) {
+                int x = fc.showOpenDialog(null);
+                if (x == JFileChooser.APPROVE_OPTION) {
+                    copy();
+                }
+            }
+            if (e.getSource() == send) {
+                send();
+            }
+        } catch (Exception ex) {
+        }
     }
 }
