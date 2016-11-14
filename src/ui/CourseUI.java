@@ -15,6 +15,8 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.MediaTracker;
 import java.awt.Toolkit;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -70,6 +72,7 @@ public class CourseUI extends JPanel {
         back.setLocation((int) width - 220, (int) height / 14);
         back.setIcon(new ImageIcon("//home//morteza//NetBeansProjects//vu//pictures//back.png"));
         back.setBorder(null);
+        back.setName("back");
         add(courseName);
         add(back);
 
@@ -153,4 +156,33 @@ public class CourseUI extends JPanel {
     public void setCourse(Course course) {
         this.course = course;
     }
+
+    private class Controller implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+   
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+            
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            
+        }
+    }
+
 }

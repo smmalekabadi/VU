@@ -52,16 +52,17 @@ public class SignUp {
         }
 
         if (!email.contains("@")) {
-            isOK = 1;//email is not real
+            isOK = 2;//email is not real
         }
-        System.out.println(isOK);
-        if (isOK == 1) {
+
+        if (isOK == 2) {
             JOptionPane.showMessageDialog(null, "EMAIL is not corrct", "vu", JOptionPane.ERROR_MESSAGE);
-        } else {
+        } else if (isOK == 0) {
             RWonFile.appendOnFile(name + "#" + username + "#" + password + "#" + email, "filename.txt");
             MainFrame.getInstance().getContentPane().removeAll();
             if (email.contains("@um.ac.ir")) {
                 Teacher newTeacher = new Teacher(name, username);
+                save.Save.setWhoIsIn(newTeacher);
                 MainFrame.getInstance().getContentPane().add(newTeacher.getTeacherUI());
                 MainFrame.getInstance().getContentPane().validate();
             } else {

@@ -24,7 +24,7 @@ public class Teacher extends Person {
     private TeacherUI teacherUI;
 
     public Teacher(String name, String username) {
-        super(name, username);
+        super(name, username,TEACHER_CODE);
         Save.addOneTeacher(this);
         teacherUI = new TeacherUI(username, this);
 
@@ -32,7 +32,7 @@ public class Teacher extends Person {
 
     public void createCourse(String courseName) {
         getMyCourses().add(new Course(courseName, Course.TEACHER_CODE));
-
+        
     }
 
     public void deleteCourse(Course course) {
@@ -46,7 +46,7 @@ public class Teacher extends Person {
     }
 
     public void createNewsfeed(Course course, String subjet, String description) {
-        course.setOneCourseNewsfeed(new Newsfeed(subjet, description));
+        course.setOneCourseNewsfeed(new Newsfeed(subjet, description,CourseObj.TEACHER_CODE));
     }
 
     public void editExercise(Exercise exercise, Date date) {
@@ -74,9 +74,9 @@ public class Teacher extends Person {
     }
 
     public void setOneCourse(Course course) {
+        System.out.println("aleik");
         myCourses.add(course);
         teacherUI.showMyCourse(myCourses);
-
     }
 
     /**

@@ -15,9 +15,13 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.MediaTracker;
 import java.awt.Toolkit;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import save.Save;
+import vu.MainFrame;
 
 /**
  *
@@ -57,7 +61,7 @@ public class CourseObjUI extends JPanel {
 
         CourseObjName = new myLabel();
         back = new myButton();
-        
+
         CourseObjName.setText(getName());
         CourseObjName.setLocation((int) width / 10, (int) height / 36);
         CourseObjName.setFont(new Font("Serif", Font.PLAIN, 36));
@@ -67,13 +71,11 @@ public class CourseObjUI extends JPanel {
         back.setLocation((int) width - 220, (int) height / 14);
         back.setIcon(new ImageIcon("//home//morteza//NetBeansProjects//vu//pictures//back.png"));
         back.setBorder(null);
-        
+        back.setName("back");
+        back.addMouseListener(new Controller());
+
         add(CourseObjName);
         add(back);
-
-    }
-
-    public void showDetail() {
 
     }
 
@@ -90,6 +92,7 @@ public class CourseObjUI extends JPanel {
         return this;
     }
 //-------------------------------------------------------------------------------
+
     /**
      * @return the name
      */
@@ -102,6 +105,42 @@ public class CourseObjUI extends JPanel {
      */
     public void setName(String name) {
         this.name = name;
+    }
+
+    private class Controller implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            if (e.getComponent().getName().equals("back")) {
+                MainFrame.getInstance().getContentPane().removeAll();
+                MainFrame.getInstance().getContentPane().add(Save.getWhoIsIn().getPersonUI());
+                MainFrame.getInstance().getContentPane().validate();
+                MainFrame.getInstance().getContentPane().invalidate();
+                MainFrame.getInstance().getContentPane().repaint();
+            }
+
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+
+        }
+
     }
 
 }

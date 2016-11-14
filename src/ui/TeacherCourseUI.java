@@ -8,6 +8,7 @@ package ui;
 import course.Course;
 import course.CourseObj;
 import course.Exercise;
+import course.Newsfeed;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Date;
@@ -63,6 +64,7 @@ public class TeacherCourseUI extends CourseUI {
         createNewsfeed.setSize(200, 35);
         createNewsfeed.setName("createNewsfeed");
         createNewsfeed.addMouseListener(new Controller());
+        
         add(studentName);
         add(addStudent);
         add(removeStudent);
@@ -90,6 +92,12 @@ public class TeacherCourseUI extends CourseUI {
 
                 }
             } else if (e.getComponent().getName().equals("createNewsfeed")) {
+                Newsfeed nf= new Newsfeed("topic", "description",CourseObj.TEACHER_CODE);
+                MainFrame.getInstance().getContentPane().removeAll();
+                MainFrame.getInstance().getContentPane().add(nf.getCourseObjUI());
+                MainFrame.getInstance().getContentPane().validate();
+                MainFrame.getInstance().getContentPane().invalidate();
+                MainFrame.getInstance().getContentPane().repaint();
 
             } else if (e.getComponent().getName().equals("createExercise")) {
                 Exercise ex = new Exercise("name", "description", new Date(2015, 2, 2), CourseObj.TEACHER_CODE);
@@ -99,6 +107,7 @@ public class TeacherCourseUI extends CourseUI {
                 MainFrame.getInstance().getContentPane().invalidate();
                 MainFrame.getInstance().getContentPane().repaint();
             }
+           
         }
 
         @Override

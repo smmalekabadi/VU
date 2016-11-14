@@ -79,22 +79,22 @@ public class TeacherUI extends PersonUI {
     public void showMyCourse(ArrayList<Course> course) {
 
         if (course != null && !course.isEmpty()) {
-
+            System.out.println("ops");
             myList myCourse = new myList();
             myCourse.setListData(course.toArray());
             myCourse.setLocation((int) ((int) width / (1.8)), (int) (height / 4));
             myCourse.setSize(500, 300);
             myCourse.setName("myCourse");
-            add(new JScrollPane(myCourse));
+            
             myCourse.addListSelectionListener(new ListSelectionListener() {
                 @Override
                 public void valueChanged(ListSelectionEvent e) {
-
                     String s = myCourse.getSelectedValue().toString();
-                    for (Course c : teacher.getMyCourses()) {
-                        if (c.getCourseName().equals(s)) {
+                    for (int i = 0; i < course.size(); i++) {
+                        if (course.get(i).getCourseName().equals(s)) {
+                            System.out.println("slm");
                             MainFrame.getInstance().getContentPane().removeAll();
-                            MainFrame.getInstance().getContentPane().add(c.getCourseUI());
+                            MainFrame.getInstance().getContentPane().add(course.get(i).getCourseUI());
                             MainFrame.getInstance().getContentPane().validate();
                             MainFrame.getInstance().getContentPane().invalidate();
                             MainFrame.getInstance().getContentPane().repaint();
@@ -103,7 +103,7 @@ public class TeacherUI extends PersonUI {
                 }
 
             });
-            
+
             add(myCourse);
             MainFrame.getInstance().validate();
             MainFrame.getInstance().invalidate();
@@ -119,7 +119,7 @@ public class TeacherUI extends PersonUI {
                 String name = JOptionPane.showInputDialog("enter the course name");
                 Course c = new Course(name, Course.TEACHER_CODE);
                 teacher.setOneCourse(c);
-            } 
+            }
         }
 
         @Override

@@ -12,18 +12,22 @@ import course.Newsfeed;
 import java.util.ArrayList;
 import javax.swing.JList;
 import javax.swing.ListModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import users.Student;
+import vu.MainFrame;
 
 /**
  *
  * @author morteza
  */
 public class StudentUI extends PersonUI {
-    
+
     Student student;
-    public StudentUI(String username,Student student) {
+
+    public StudentUI(String username, Student student) {
         super(username);
-        this.student= student;
+        this.student = student;
         showCourses(student.getMyCourse());
         showNewseedExercise(student.getMyCourse());
     }
@@ -34,8 +38,27 @@ public class StudentUI extends PersonUI {
             myCourse.setListData(course.toArray());
             myCourse.setLocation((int) ((int) width / (1.8)), (int) (height / 4));
             myCourse.setSize(500, 500);
+            myCourse.addListSelectionListener(new ListSelectionListener() {
+                @Override
+                public void valueChanged(ListSelectionEvent e) {
+                    String s = myCourse.getSelectedValue().toString();
+                    for (int i = 0; i < course.size(); i++) {
+                        if (course.get(i).getCourseName().equals(s)) {
+                            System.out.println("slm");
+                            MainFrame.getInstance().getContentPane().removeAll();
+                            MainFrame.getInstance().getContentPane().add(course.get(i).getCourseUI());
+                            MainFrame.getInstance().getContentPane().validate();
+                            MainFrame.getInstance().getContentPane().invalidate();
+                            MainFrame.getInstance().getContentPane().repaint();
+                        }
+                    }
+                }
+            });
 
             add(myCourse);
+            MainFrame.getInstance().getContentPane().validate();
+            MainFrame.getInstance().getContentPane().invalidate();
+            MainFrame.getInstance().getContentPane().repaint();
         }
     }
 
@@ -55,9 +78,26 @@ public class StudentUI extends PersonUI {
             myNewsfeedExercise.setListData(courseobj.toArray());
             myNewsfeedExercise.setLocation((int) ((int) width / (12)), (int) (height / 4));
             myNewsfeedExercise.setSize(500, 500);
-
+            myNewsfeedExercise.addListSelectionListener(new ListSelectionListener() {
+                @Override
+                public void valueChanged(ListSelectionEvent e) {
+                    String s = myNewsfeedExercise.getSelectedValue().toString();
+                    for (int i = 0; i < course.size(); i++) {
+                        if (course.get(i).getCourseName().equals(s)) {
+                            System.out.println("slm");
+                            MainFrame.getInstance().getContentPane().removeAll();
+                            MainFrame.getInstance().getContentPane().add(courseobj.get(i).getCourseObjUI());
+                            MainFrame.getInstance().getContentPane().validate();
+                            MainFrame.getInstance().getContentPane().invalidate();
+                            MainFrame.getInstance().getContentPane().repaint();
+                        }
+                    }
+                }
+            });
             add(myNewsfeedExercise);
-
+            MainFrame.getInstance().getContentPane().validate();
+            MainFrame.getInstance().getContentPane().invalidate();
+            MainFrame.getInstance().getContentPane().repaint();
         }
     }
 }

@@ -12,6 +12,7 @@ import java.awt.event.MouseListener;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import startPage.SignIn;
 import vu.MainFrame;
 
@@ -54,7 +55,9 @@ public class TeacherExerciseUI extends CourseObjUI {
         save.setText("Save");
         save.setSize(350, 35);
         save.setLocation((int) (width / 2.5) - 15, (int) (height / 1.8));
-
+        save.setName("save");
+        save.addMouseListener(new Controller());
+        
         add(name);
         add(description);
         add(date);
@@ -68,7 +71,7 @@ public class TeacherExerciseUI extends CourseObjUI {
             if (e.getComponent().getName().equals("save")) {
                 exercise.setName(name.getText());
                 exercise.setDescription(description.getText());
-
+                JOptionPane.showMessageDialog(null,"exercise saved");
             }
 
         }

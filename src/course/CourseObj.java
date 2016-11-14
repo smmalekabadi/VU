@@ -5,6 +5,8 @@
  */
 package course;
 
+import ui.CourseObjUI;
+
 /**
  *
  * @author morteza
@@ -15,11 +17,12 @@ public class CourseObj {
     private String description;
     public static final int TEACHER_CODE = 1;
     public static final int STUDENT_CODE = 2;
+    protected CourseObjUI courseObjUI;
 
     public CourseObj(String name, String description) {
         this.name = name;
         this.description = description;
-        
+
     }
 
     /**
@@ -48,6 +51,20 @@ public class CourseObj {
      */
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    /**
+     * @return the courseObjUI
+     */
+    public CourseObjUI getCourseObjUI() {
+        return courseObjUI;
+    }
+
+    /**
+     * @param courseObjUI the courseObjUI to set
+     */
+    public void setCourseObjUI(CourseObjUI courseObjUI) {
+        this.courseObjUI = courseObjUI;
     }
 
 }

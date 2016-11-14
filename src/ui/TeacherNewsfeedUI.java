@@ -7,6 +7,9 @@ package ui;
 
 
 import course.Newsfeed;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -43,8 +46,43 @@ public class TeacherNewsfeedUI extends CourseObjUI {
         save.setText("Save");
         save.setSize(350, 35);
         save.setLocation((int) (width / 2.5) - 15, (int) (height / 1.8));
+        save.setName("save");
+        save.addMouseListener(new Controller());
         add(name);
         add(description);
         add(save);
+    }
+    private class Controller implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            if (e.getComponent().getName().equals("save")) {
+                newsfeed.setName(name.getText());
+                newsfeed.setDescription(description.getText());
+                JOptionPane.showMessageDialog(null,"newsfeed saved");
+            }
+
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+
+        }
+
     }
 }

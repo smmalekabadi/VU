@@ -8,6 +8,7 @@ package users;
 import save.Save;
 import course.Course;
 import java.util.ArrayList;
+import ui.PersonUI;
 import ui.StudentUI;
 
 /**
@@ -20,7 +21,7 @@ public class Student extends Person {
     private ArrayList<Course> myCourse;
     private StudentUI studentUI;
     public Student(String name, String username) {
-        super(name, username);
+        super(name, username,Person.STUDENT_CODE);
         studentUI= new StudentUI(username,this);
     }
 

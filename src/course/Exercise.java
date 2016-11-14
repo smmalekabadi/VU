@@ -21,17 +21,17 @@ public class Exercise extends CourseObj {
 
     private Date date;
     private ArrayList<File> uploadedExecise = new ArrayList<File>();
-    private CourseObjUI courseObjUI;
+    
 
     public Exercise(String name, String description, Date date, int SorTCode) {
         super(name, description);
         this.date = date;
         if (SorTCode == 1) {
             courseObjUI = new TeacherExerciseUI(name, this);
-            
+
+        } else {
+            courseObjUI = new StudentExerciseUI(name, this);
         }
-        else 
-            courseObjUI= new StudentExerciseUI(name, this);
 
     }
 //-------------------------------------------------------------------------------
@@ -75,18 +75,5 @@ public class Exercise extends CourseObj {
 
     }
 
-    /**
-     * @return the courseObjUI
-     */
-    public CourseObjUI getCourseObjUI() {
-        return courseObjUI;
-    }
-
-    /**
-     * @param courseObjUI the courseObjUI to set
-     */
-    public void setCourseObjUI(CourseObjUI courseObjUI) {
-        this.courseObjUI = courseObjUI;
-    }
-
+  
 }

@@ -5,17 +5,33 @@
  */
 package course;
 
+import ui.CourseObjUI;
+import ui.StudentExerciseUI;
+import ui.StudentNewsfeedUI;
+import ui.TeacherExerciseUI;
+import ui.TeacherNewsfeedUI;
+
 /**
  *
  * @author morteza
  */
-public class Newsfeed extends CourseObj{
+public class Newsfeed extends CourseObj {
 
-    
+   
 
-    public Newsfeed(String name, String description) {
+    public Newsfeed(String name, String description, int SorT) {
         super(name, description);
+        if (SorT == 1) {
+            courseObjUI = new TeacherNewsfeedUI(name, this);
+
+        } else {
+            courseObjUI = new StudentNewsfeedUI(name, this);
+        }
     }
 //-------------------------------------------------------------------------------
+
+    /**
+     * @return the courseObjUI
+     */
  
 }

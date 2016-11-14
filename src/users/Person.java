@@ -6,6 +6,9 @@
 package users;
 
 import file.RWonFile;
+import ui.PersonUI;
+import ui.StudentUI;
+import ui.TeacherUI;
 
 /**
  *
@@ -16,23 +19,33 @@ public abstract class Person {
     private String name;
     private String username;
     private boolean inORout;
-    public Person(String name, String username) {
+    private PersonUI personUI;
+    public static final int TEACHER_CODE = 1;
+    public static final int STUDENT_CODE = 2;
+
+    public Person(String name, String username, int SorT) {
         this.name = name;
         this.username = username;
+        if (SorT == 1) {
+            this.personUI = new TeacherUI(name, (Teacher) this);
+        } else {
+            this.personUI = new StudentUI(username, (Student) this);
+        }
     }
-    public void editProfilePassword() throws Exception{
-        
-        
+
+    public void editProfilePassword() throws Exception {
+
     }
-    public void editProfileUsername(){
-    
-    
+
+    public void editProfileUsername() {
+
     }
-    public void indexOfCourse(){
-        
-    
+
+    public void indexOfCourse() {
+
     }
 //-------------------------------------------------------------------------------
+
     /**
      * @return the inORout
      */
@@ -73,5 +86,19 @@ public abstract class Person {
      */
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    /**
+     * @return the personUI
+     */
+    public PersonUI getPersonUI() {
+        return personUI;
+    }
+
+    /**
+     * @param personUI the personUI to set
+     */
+    public void setPersonUI(PersonUI personUI) {
+        this.personUI = personUI;
     }
 }

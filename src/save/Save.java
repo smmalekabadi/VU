@@ -7,6 +7,7 @@ package save;
 
 import java.util.ArrayList;
 import course.Course;
+import users.Person;
 import users.Student;
 import users.Teacher;
 
@@ -19,7 +20,7 @@ public final class Save {
     private static ArrayList<Course> allCourse = new ArrayList<Course>();
     private static ArrayList<Student> allStudent = new ArrayList<Student>();
     private static ArrayList<Teacher> allTeacher = new ArrayList<Teacher>();
-
+    private static Person whoIsIn;
 //-------------------------------------------------------------------------------
     /**
      * @return the allCourse
@@ -85,6 +86,20 @@ public final class Save {
 
     public static void removeOneTeacher(Teacher teacher) {
         allCourse.remove(teacher);
+    }
+
+    /**
+     * @return the whoIsIn
+     */
+    public static Person getWhoIsIn() {
+        return whoIsIn;
+    }
+
+    /**
+     * @param aWhoIsIn the whoIsIn to set
+     */
+    public static void setWhoIsIn(Person aWhoIsIn) {
+        whoIsIn = aWhoIsIn;
     }
 
 }
