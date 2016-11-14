@@ -70,6 +70,11 @@ public class Student extends Person {
     public StudentUI getStudentUI() {
         return studentUI;
     }
+    public void setOneCourse(Course course) {
+        myCourse.add(course);
+        
+
+    }
 
     /**
      * @param studentUI the studentUI to set

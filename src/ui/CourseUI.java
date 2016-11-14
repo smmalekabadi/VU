@@ -29,13 +29,15 @@ public class CourseUI extends JPanel {
     private myButton back;
     private myLabel courseName;
     private String name;
+    private Course course;
     double width;
     double height;
 
     Image bgimg;
-    
-    public CourseUI(String name,Course course) {
+
+    public CourseUI(String name, Course course) {
         this.name = name;
+        this.getCourse();
         setLayout(null);
         MediaTracker mt = new MediaTracker(this);
         bgimg = Toolkit.getDefaultToolkit().getImage("//home//morteza//NetBeansProjects//vu//pictures//background4.jpg");
@@ -58,7 +60,7 @@ public class CourseUI extends JPanel {
     public void settingElement() {
         courseName = new myLabel();
         back = new myButton();
-        
+
         courseName.setText(getName());
         courseName.setLocation((int) width / 10, (int) height / 36);
         courseName.setFont(new Font("Serif", Font.PLAIN, 36));
@@ -74,33 +76,40 @@ public class CourseUI extends JPanel {
     }
 
     public void showNewsfeedExercise(Course course) {
+
         myList myNewsfeedExercise = new myList();
         ArrayList<CourseObj> courseobj = new ArrayList<CourseObj>();
-
-        for (Exercise ex : course.getCourseExercise()) {
-            courseobj.add(ex);
+        if (!course.getCourseExercise().isEmpty()) {
+            for (Exercise ex : course.getCourseExercise()) {
+                courseobj.add(ex);
+            }
         }
-        for (Newsfeed newsfeed : course.getCourseNewsFeed()) {
-            courseobj.add(newsfeed);
+        if (!course.getCourseNewsFeed().isEmpty()) {
+            for (Newsfeed newsfeed : course.getCourseNewsFeed()) {
+                courseobj.add(newsfeed);
 
+            }
         }
-        myNewsfeedExercise.setListData(courseobj.toArray());
-        myNewsfeedExercise.setLocation((int) (width / (12)), (int) (height / 4));
-        myNewsfeedExercise.setSize(500, 300);
+        if (!courseobj.isEmpty()) {
+            myNewsfeedExercise.setListData(courseobj.toArray());
+            myNewsfeedExercise.setLocation((int) (width / (12)), (int) (height / 4));
+            myNewsfeedExercise.setSize(500, 300);
 
-        add(myNewsfeedExercise);
-
+            add(myNewsfeedExercise);
+        }
     }
 
     public void showStudentList(ArrayList<Student> students) {
-        myList studentList = new myList();
+        if (students.isEmpty()) {
 
-        studentList.setListData(students.toArray());
-        studentList.setLocation((int) (width / (1.8)), (int) (height / 4));
-        studentList.setSize(500, 300);
+            myList studentList = new myList();
 
-        add(studentList);
+            studentList.setListData(students.toArray());
+            studentList.setLocation((int) (width / (1.8)), (int) (height / 4));
+            studentList.setSize(500, 300);
 
+            add(studentList);
+        }
     }
 
     protected void paintComponent(Graphics g) {
@@ -129,5 +138,19 @@ public class CourseUI extends JPanel {
      */
     public void setName(String name) {
         this.name = name;
+    }
+
+    /**
+     * @return the course
+     */
+    public Course getCourse() {
+        return course;
+    }
+
+    /**
+     * @param course the course to set
+     */
+    public void setCourse(Course course) {
+        this.course = course;
     }
 }

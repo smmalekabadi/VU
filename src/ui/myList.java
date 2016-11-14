@@ -17,7 +17,7 @@ public class myList extends JList {
     public myList() {
         this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         change();
-    }
+    } 
 
     public void change() {
         this.setOpaque(false);

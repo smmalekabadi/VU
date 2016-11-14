@@ -25,11 +25,12 @@ public class Course {
     public static final int TEACHER_CODE = 1;
     public static final int STUDENT_CODE = 2;
 
-    public Course(String courseName, int SorTCode) {
+    public Course(String courseName, int SorTCode/*student or teacher code*/) {
         this.courseName = courseName;
         Save.addOnecourse(this);
         if (SorTCode == 1) {
             courseUI = new TeacherCourseUI(courseName, this);
+            
         } else {
              courseUI = new StudentCourseUI(courseName, this);
         }

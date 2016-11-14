@@ -93,7 +93,7 @@ public class SettingUI extends JPanel {
         save.setLocation((int) (width / 2.5) - 15, (int) (height / 2.2));
         save.setName("save");
         save.addMouseListener(new Controller());
-        
+
         add(name);
         add(username);
         add(password);
@@ -107,9 +107,9 @@ public class SettingUI extends JPanel {
         public void mouseClicked(MouseEvent e) {
             if (e.getComponent().getName().equals("save")) {
                 try {
-                    System.out.println(RWonFile.ReadFromfile("filename.txt").get(0));
+
                     RWonFile.deleteLine(username1);
-                    RWonFile.appendOnFile(name.getText()+ "#" + username.getText()+ "#" + password.getText()+ "#" + email.getText(), "filename.txt");
+                    RWonFile.appendOnFile(name.getText() + "#" + username.getText() + "#" + password.getText() + "#" + email.getText(), "filename.txt");
                 } catch (Exception ex) {
                     Logger.getLogger(SettingUI.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -119,7 +119,7 @@ public class SettingUI extends JPanel {
                 MainFrame.getInstance().getContentPane().validate();
                 MainFrame.getInstance().getContentPane().invalidate();
                 MainFrame.getInstance().getContentPane().repaint();
-                
+
             }
 
         }

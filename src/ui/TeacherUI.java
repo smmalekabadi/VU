@@ -119,13 +119,7 @@ public class TeacherUI extends PersonUI {
                 String name = JOptionPane.showInputDialog("enter the course name");
                 Course c = new Course(name, Course.TEACHER_CODE);
                 teacher.setOneCourse(c);
-            } else if (e.getComponent().getName().equals("myCourse")) {
-
-//                Save.getAllCourse();
-//                MainFrame.getInstance().getContentPane().add(student.getStudentUI());
-//                MainFrame.getInstance().getContentPane().validate();
-            }
-
+            } 
         }
 
         @Override

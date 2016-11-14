@@ -25,7 +25,6 @@ public class Teacher extends Person {
     public Teacher(String name, String username) {
         super(name, username);
         Save.addOneTeacher(this);
-
         teacherUI = new TeacherUI(username, this);
 
     }
