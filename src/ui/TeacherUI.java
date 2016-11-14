@@ -34,9 +34,8 @@ public class TeacherUI extends PersonUI {
     public TeacherUI(String username, Teacher teacher) {
         super(username);
         this.teacher = teacher;
-        setElement();
-        showMyCourse(teacher.getMyCourses());
-        showStudentExecrcise(teacher.getMyCourses());
+        update();
+
     }
 
     public void setElement() {
@@ -50,7 +49,8 @@ public class TeacherUI extends PersonUI {
         add(createCourse);
     }
 
-    public void showStudentExecrcise(ArrayList<Course> myCourse) {
+    public void showStudentExecrcise() {
+        ArrayList<Course> myCourse = teacher.getMyCourses();
         if (myCourse != null && myCourse.isEmpty()) {
             ArrayList<File> files = new ArrayList<>();
             for (Course course : myCourse) {
@@ -76,8 +76,14 @@ public class TeacherUI extends PersonUI {
         }
     }
 
-    public void showMyCourse(ArrayList<Course> course) {
+    public void update() {
+        setElement();
+        showMyCourse();
+        showStudentExecrcise();
+    }
 
+    public void showMyCourse() {
+        ArrayList<Course> course = teacher.getMyCourses();
         if (course != null && !course.isEmpty()) {
             System.out.println("ops");
             myList myCourse = new myList();
@@ -85,7 +91,7 @@ public class TeacherUI extends PersonUI {
             myCourse.setLocation((int) ((int) width / (1.8)), (int) (height / 4));
             myCourse.setSize(500, 300);
             myCourse.setName("myCourse");
-            
+
             myCourse.addListSelectionListener(new ListSelectionListener() {
                 @Override
                 public void valueChanged(ListSelectionEvent e) {

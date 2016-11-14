@@ -23,6 +23,7 @@ public class Student extends Person {
     public Student(String name, String username) {
         super(name, username,Person.STUDENT_CODE);
         studentUI= new StudentUI(username,this);
+         Save.addOneStudent(this);
     }
 
     public void coureList() {

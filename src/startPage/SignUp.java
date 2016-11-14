@@ -63,10 +63,13 @@ public class SignUp {
             if (email.contains("@um.ac.ir")) {
                 Teacher newTeacher = new Teacher(name, username);
                 save.Save.setWhoIsIn(newTeacher);
+                MainFrame.getInstance().getContentPane().removeAll();
                 MainFrame.getInstance().getContentPane().add(newTeacher.getTeacherUI());
                 MainFrame.getInstance().getContentPane().validate();
             } else {
+                System.out.println("ops");
                 Student student = new Student(name, username);
+                MainFrame.getInstance().getContentPane().removeAll();
                 MainFrame.getInstance().getContentPane().add(student.getStudentUI());
                 MainFrame.getInstance().getContentPane().validate();
             }

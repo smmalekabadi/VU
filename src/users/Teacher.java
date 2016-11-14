@@ -76,7 +76,7 @@ public class Teacher extends Person {
     public void setOneCourse(Course course) {
         System.out.println("aleik");
         myCourses.add(course);
-        teacherUI.showMyCourse(myCourses);
+        teacherUI.update();
     }
 
     /**

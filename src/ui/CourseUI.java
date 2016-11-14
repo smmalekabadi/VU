@@ -20,7 +20,9 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import save.Save;
 import users.Student;
+import vu.MainFrame;
 
 /**
  *
@@ -73,6 +75,7 @@ public class CourseUI extends JPanel {
         back.setIcon(new ImageIcon("//home//morteza//NetBeansProjects//vu//pictures//back.png"));
         back.setBorder(null);
         back.setName("back");
+        back.addMouseListener(new Controller());
         add(courseName);
         add(back);
 
@@ -161,27 +164,33 @@ public class CourseUI extends JPanel {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-            
+            if (e.getComponent().getName().equals("back")) {
+                MainFrame.getInstance().getContentPane().removeAll();
+                MainFrame.getInstance().getContentPane().add(Save.getWhoIsIn().getPersonUI());
+                MainFrame.getInstance().getContentPane().validate();
+                MainFrame.getInstance().getContentPane().invalidate();
+                MainFrame.getInstance().getContentPane().repaint();
+            }
         }
 
         @Override
         public void mousePressed(MouseEvent e) {
-   
+
         }
 
         @Override
         public void mouseReleased(MouseEvent e) {
-            
+
         }
 
         @Override
         public void mouseEntered(MouseEvent e) {
-            
+
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
-            
+
         }
     }
 

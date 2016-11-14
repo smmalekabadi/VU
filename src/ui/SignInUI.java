@@ -35,9 +35,10 @@ public class SignInUI extends JPanel {
     Image bgimg;
     double width;
     double height;
-
+    
     public SignInUI() {
         setLayout(null);
+        
         MediaTracker mt = new MediaTracker(this);
         bgimg = Toolkit.getDefaultToolkit().getImage("//home//morteza//NetBeansProjects//vu//pictures//background4.jpg");
         mt.addImage(bgimg, 0);

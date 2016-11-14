@@ -28,11 +28,18 @@ public class StudentUI extends PersonUI {
     public StudentUI(String username, Student student) {
         super(username);
         this.student = student;
-        showCourses(student.getMyCourse());
-        showNewseedExercise(student.getMyCourse());
+        update();
+
     }
 
-    public void showCourses(ArrayList<Course> course) {
+    public void update() {
+
+        showCourses();
+        showNewseedExercise();
+    }
+
+    public void showCourses() {
+        ArrayList<Course> course = student.getMyCourse();
         if (course != null && course.isEmpty()) {
             myList myCourse = new myList();
             myCourse.setListData(course.toArray());
@@ -62,7 +69,8 @@ public class StudentUI extends PersonUI {
         }
     }
 
-    public void showNewseedExercise(ArrayList<Course> course) {
+    public void showNewseedExercise() {
+        ArrayList<Course> course=student.getMyCourse();
         if (course != null && course.isEmpty()) {
             myList myNewsfeedExercise = new myList();
             ArrayList<CourseObj> courseobj = new ArrayList<CourseObj>();
