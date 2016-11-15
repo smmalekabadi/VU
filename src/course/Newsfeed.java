@@ -16,15 +16,17 @@ import ui.TeacherNewsfeedUI;
  * @author morteza
  */
 public class Newsfeed extends CourseObj {
-    
+
     public Newsfeed(String name, String description, Course course, int SorT) {
         super(name, description, course);
-        if (SorT == 1) {
-            courseObjUI = new TeacherNewsfeedUI(name,this);
+        setUI();
+    }
 
-        } else {
-            courseObjUI = new StudentNewsfeedUI(name,this);
-        }
+    @Override
+    public void setUI() {
+        courseObjUIT = new TeacherNewsfeedUI(getName(), this);
+        courseObjUIS = new StudentNewsfeedUI(getName(), this);
+
     }
 //-------------------------------------------------------------------------------
 

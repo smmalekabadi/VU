@@ -17,13 +17,25 @@ public class CourseObj {
     private String description;
     public static final int TEACHER_CODE = 1;
     public static final int STUDENT_CODE = 2;
-    protected CourseObjUI courseObjUI;
+//    protected CourseObjUI courseObjUI;
+    protected CourseObjUI courseObjUIT;
+    protected CourseObjUI courseObjUIS;
     private Course course;
-    public CourseObj(String name, String description,Course course) {
+
+    public CourseObj(String name, String description, Course course) {
         this.name = name;
         this.description = description;
-        this.course=course;
+        this.course = course;
 
+    }
+    public void setUI(){
+    
+    
+    }
+    
+    @Override
+    public String toString() {
+        return name;
     }
 
     /**
@@ -57,16 +69,16 @@ public class CourseObj {
     /**
      * @return the courseObjUI
      */
-    public CourseObjUI getCourseObjUI() {
-        return courseObjUI;
-    }
-
-    /**
-     * @param courseObjUI the courseObjUI to set
-     */
-    public void setCourseObjUI(CourseObjUI courseObjUI) {
-        this.courseObjUI = courseObjUI;
-    }
+//    public CourseObjUI getCourseObjUI() {
+//        return courseObjUI;
+//    }
+//
+//    /**
+//     * @param courseObjUI the courseObjUI to set
+//     */
+//    public void setCourseObjUI(CourseObjUI courseObjUI) {
+//        this.courseObjUI = courseObjUI;
+//    }
 
     /**
      * @return the course
@@ -80,6 +92,34 @@ public class CourseObj {
      */
     public void setCourse(Course course) {
         this.course = course;
+    }
+
+    /**
+     * @return the courseObjUIS
+     */
+    public CourseObjUI getCourseObjUIS() {
+        return courseObjUIS;
+    }
+
+    /**
+     * @param courseObjUIS the courseObjUIS to set
+     */
+    public void setCourseObjUIS(CourseObjUI courseObjUIS) {
+        this.courseObjUIS = courseObjUIS;
+    }
+
+    /**
+     * @return the courseObjUIT
+     */
+    public CourseObjUI getCourseObjUIT() {
+        return courseObjUIT;
+    }
+
+    /**
+     * @param courseObjUIT the courseObjUIT to set
+     */
+    public void setCourseObjUIT(CourseObjUI courseObjUIT) {
+        this.courseObjUIT = courseObjUIT;
     }
 
 }

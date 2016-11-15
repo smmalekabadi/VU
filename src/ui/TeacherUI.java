@@ -98,7 +98,7 @@ public class TeacherUI extends PersonUI {
                     for (int i = 0; i < course.size(); i++) {
                         if (course.get(i).getCourseName().equals(s)) {
                             MainFrame.getInstance().getContentPane().removeAll();
-                            MainFrame.getInstance().getContentPane().add(course.get(i).getCourseUI());
+                            MainFrame.getInstance().getContentPane().add(course.get(i).getCourseUIT());
                             MainFrame.getInstance().getContentPane().validate();
                             MainFrame.getInstance().getContentPane().invalidate();
                             MainFrame.getInstance().getContentPane().repaint();

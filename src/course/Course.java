@@ -22,7 +22,8 @@ public class Course {
     private String courseName;
     private ArrayList<Exercise> courseExercise = new ArrayList<Exercise>();
     private ArrayList<Newsfeed> courseNewsFeed = new ArrayList<Newsfeed>();
-    private CourseUI courseUI;
+    private CourseUI courseUIT;
+    private CourseUI courseUIS;
     private Teacher teacher;
     public static final int TEACHER_CODE = 1;
     public static final int STUDENT_CODE = 2;
@@ -31,14 +32,12 @@ public class Course {
         this.courseName = courseName;
         this.teacher=teacher;
         Save.addOnecourse(this);
-        if (SorTCode == 1) {
-            courseUI = new TeacherCourseUI(courseName, this);
-            
-        } else {
-             courseUI = new StudentCourseUI(courseName, this);
-        }
+        setUI();
     }
-
+    public void setUI(){
+        setCourseUIT(new TeacherCourseUI(courseName, this));
+        setCourseUIS(new StudentCourseUI(courseName, this));
+    }
     @Override
     public String toString() {
 
@@ -100,20 +99,6 @@ public class Course {
     }
 
     /**
-     * @return the courseUI
-     */
-    public CourseUI getCourseUI() {
-        return courseUI;
-    }
-
-    /**
-     * @param courseUI the courseUI to set
-     */
-    public void setCourseUI(CourseUI courseUI) {
-        this.courseUI = courseUI;
-    }
-
-    /**
      * @return the teacher
      */
     public Teacher getTeacher() {
@@ -125,5 +110,33 @@ public class Course {
      */
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
+    }
+
+    /**
+     * @return the courseUIT
+     */
+    public CourseUI getCourseUIT() {
+        return courseUIT;
+    }
+
+    /**
+     * @param courseUIT the courseUIT to set
+     */
+    public void setCourseUIT(CourseUI courseUIT) {
+        this.courseUIT = courseUIT;
+    }
+
+    /**
+     * @return the courseUIS
+     */
+    public CourseUI getCourseUIS() {
+        return courseUIS;
+    }
+
+    /**
+     * @param courseUIS the courseUIS to set
+     */
+    public void setCourseUIS(CourseUI courseUIS) {
+        this.courseUIS = courseUIS;
     }
 }

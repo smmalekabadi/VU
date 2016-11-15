@@ -22,6 +22,7 @@ public class StudentNewsfeedUI extends CourseObjUI {
     public StudentNewsfeedUI(String name, Newsfeed newsfeed) {
         super(name,newsfeed);
         this.newsfeed = newsfeed;
+        setElement();
     }
 
     public void setElement() {

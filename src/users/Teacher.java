@@ -46,7 +46,6 @@ public class Teacher extends Person {
     }
 
     public void createNewsfeed(Course course, String subjet, String description) {
-        System.out.println(course+"asdasdads");
         course.setOneCourseNewsfeed(new Newsfeed(subjet, description,course ,CourseObj.TEACHER_CODE));
     }
 

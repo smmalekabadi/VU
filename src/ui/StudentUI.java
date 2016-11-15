@@ -54,7 +54,7 @@ public class StudentUI extends PersonUI {
                     for (int i = 0; i < course.size(); i++) {
                         if (course.get(i).getCourseName().equals(s)) {
                             MainFrame.getInstance().getContentPane().removeAll();
-                            MainFrame.getInstance().getContentPane().add(course.get(i).getCourseUI());
+                            MainFrame.getInstance().getContentPane().add(course.get(i).getCourseUIS());
                             MainFrame.getInstance().getContentPane().validate();
                             MainFrame.getInstance().getContentPane().invalidate();
                             MainFrame.getInstance().getContentPane().repaint();
@@ -90,11 +90,12 @@ public class StudentUI extends PersonUI {
                 @Override
                 public void valueChanged(ListSelectionEvent e) {
                     String s = myNewsfeedExercise.getSelectedValue().toString();
-                    for (int i = 0; i < course.size(); i++) {
-                        if (course.get(i).getCourseName().equals(s)) {
+                    System.out.println(s);
+                    for (int i = 0; i < courseobj.size(); i++) {
+                        if (courseobj.get(i).getName().equals(s)||courseobj.get(i).getName().equals(s)) {
 
                             MainFrame.getInstance().getContentPane().removeAll();
-                            MainFrame.getInstance().getContentPane().add(courseobj.get(i).getCourseObjUI());
+                            MainFrame.getInstance().getContentPane().add(courseobj.get(i).getCourseObjUIS());
                             MainFrame.getInstance().getContentPane().validate();
                             MainFrame.getInstance().getContentPane().invalidate();
                             MainFrame.getInstance().getContentPane().repaint();
@@ -103,7 +104,7 @@ public class StudentUI extends PersonUI {
                 }
             });
             add(myNewsfeedExercise);
-            System.out.println("exe and new");
+            
             MainFrame.getInstance().getContentPane().validate();
             MainFrame.getInstance().getContentPane().invalidate();
             MainFrame.getInstance().getContentPane().repaint();

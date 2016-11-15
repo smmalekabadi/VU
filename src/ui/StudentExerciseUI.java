@@ -42,6 +42,7 @@ public class StudentExerciseUI extends CourseObjUI implements ActionListener {
     public StudentExerciseUI(String name, Exercise exercise) {
         super(name,exercise);
         this.exercise = exercise;
+            setElement();
         try {
             s = new Socket("localhost", 10);
             dout = new DataOutputStream(s.getOutputStream());
