@@ -33,7 +33,7 @@ public class CourseUI extends JPanel {
     private myButton back;
     private myLabel courseName;
     private String name;
-    private Course course;
+    protected Course course;
     double width;
     double height;
 
@@ -41,7 +41,7 @@ public class CourseUI extends JPanel {
 
     public CourseUI(String name, Course course) {
         this.name = name;
-        this.getCourse();
+        this.course= course;
         setLayout(null);
         MediaTracker mt = new MediaTracker(this);
         bgimg = Toolkit.getDefaultToolkit().getImage("//home//morteza//NetBeansProjects//vu//pictures//background4.jpg");
@@ -106,7 +106,7 @@ public class CourseUI extends JPanel {
     }
 
     public void showStudentList(ArrayList<Student> students) {
-        if (students.isEmpty()) {
+        if (!students.isEmpty()) {
 
             myList studentList = new myList();
 
@@ -166,6 +166,7 @@ public class CourseUI extends JPanel {
         public void mouseClicked(MouseEvent e) {
             if (e.getComponent().getName().equals("back")) {
                 MainFrame.getInstance().getContentPane().removeAll();
+                Save.getWhoIsIn().getPersonUI().update();
                 MainFrame.getInstance().getContentPane().add(Save.getWhoIsIn().getPersonUI());
                 MainFrame.getInstance().getContentPane().validate();
                 MainFrame.getInstance().getContentPane().invalidate();

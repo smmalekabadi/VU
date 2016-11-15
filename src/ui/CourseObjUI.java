@@ -113,6 +113,7 @@ public class CourseObjUI extends JPanel {
         public void mouseClicked(MouseEvent e) {
             if (e.getComponent().getName().equals("back")) {
                 MainFrame.getInstance().getContentPane().removeAll();
+                Save.getWhoIsIn().getPersonUI().update();
                 MainFrame.getInstance().getContentPane().add(Save.getWhoIsIn().getPersonUI());
                 MainFrame.getInstance().getContentPane().validate();
                 MainFrame.getInstance().getContentPane().invalidate();

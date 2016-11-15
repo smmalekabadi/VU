@@ -22,6 +22,7 @@ public final class Save {
     private static ArrayList<Teacher> allTeacher = new ArrayList<Teacher>();
     private static Person whoIsIn;
 //-------------------------------------------------------------------------------
+
     /**
      * @return the allCourse
      */
@@ -59,6 +60,7 @@ public final class Save {
     }
 
     public static void addOneStudent(Student student) {
+
         allStudent.add(student);
     }
 
@@ -85,7 +87,7 @@ public final class Save {
     }
 
     public static void removeOneTeacher(Teacher teacher) {
-        allCourse.remove(teacher);
+        allTeacher.remove(teacher);
     }
 
     /**

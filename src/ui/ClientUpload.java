@@ -14,11 +14,14 @@ class ClientUpload extends JFrame implements ActionListener {
     JFileChooser fc;
     JButton b, b1;
     JTextField tf;
+    
     FileInputStream in;
     Socket s;
+    
     DataOutputStream dout;
     DataInputStream din;
     int i;
+    
 
     ClientUpload() {
         super("client");

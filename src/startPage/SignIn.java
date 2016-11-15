@@ -43,19 +43,20 @@ public class SignIn {
                 if (password.equals(allUser.get(i).split("#")[2])) {
                     for (int j = 0; j < Save.getAllStudent().size(); j++) {
                         if (Save.getAllStudent() != null && Save.getAllStudent().get(j).getUsername().equals(username)) {
-                            System.out.println(Save.getAllStudent().get(j));
-                            System.out.println(Save.getAllStudent().get(j).getStudentUI());
                             Save.getAllStudent().get(j).getStudentUI().update();
+                            Save.setWhoIsIn(Save.getAllStudent().get(j));
                             MainFrame.getInstance().getContentPane().removeAll();
                             MainFrame.getInstance().getContentPane().add(Save.getAllStudent().get(j).getStudentUI());
                             MainFrame.getInstance().getContentPane().validate();
                             MainFrame.getInstance().getContentPane().invalidate();
                             MainFrame.getInstance().getContentPane().repaint();
+                            
                         }
                     }
                     for (int j = 0; j < Save.getAllTeacher().size(); j++) {
                         if (Save.getAllTeacher() != null && Save.getAllTeacher().get(j).getUsername().equals(username)) {
                             MainFrame.getInstance().getContentPane().removeAll();
+                            Save.setWhoIsIn(Save.getAllTeacher().get(j));
                             Save.getAllTeacher().get(j).getTeacherUI().update();
                             MainFrame.getInstance().getContentPane().add(Save.getAllTeacher().get(j).getTeacherUI());
                             MainFrame.getInstance().getContentPane().validate();

@@ -35,10 +35,10 @@ public class SignInUI extends JPanel {
     Image bgimg;
     double width;
     double height;
-    
+
     public SignInUI() {
         setLayout(null);
-        
+
         MediaTracker mt = new MediaTracker(this);
         bgimg = Toolkit.getDefaultToolkit().getImage("//home//morteza//NetBeansProjects//vu//pictures//background4.jpg");
         mt.addImage(bgimg, 0);
@@ -132,7 +132,9 @@ public class SignInUI extends JPanel {
                 visibel();
                 MainFrame.getInstance().getContentPane().removeAll();
                 MainFrame.getInstance().getContentPane().add(new SignUpUI());
-
+                MainFrame.getInstance().getContentPane().validate();
+                MainFrame.getInstance().getContentPane().invalidate();
+                MainFrame.getInstance().getContentPane().repaint();
             }
 
         }

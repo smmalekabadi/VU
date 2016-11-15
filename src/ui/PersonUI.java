@@ -62,7 +62,8 @@ public class PersonUI extends JPanel {
         width = screenSize.getWidth();
         height = screenSize.getHeight();
     }
-
+    public void update(){
+    }
     public void settingElement() {
         welcome = new myLabel();
         exit = new myButton();

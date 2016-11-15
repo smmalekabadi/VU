@@ -76,6 +76,7 @@ public class TeacherUI extends PersonUI {
         }
     }
 
+    @Override
     public void update() {
         setElement();
         showMyCourse();
@@ -85,20 +86,17 @@ public class TeacherUI extends PersonUI {
     public void showMyCourse() {
         ArrayList<Course> course = teacher.getMyCourses();
         if (course != null && !course.isEmpty()) {
-            System.out.println("ops");
             myList myCourse = new myList();
             myCourse.setListData(course.toArray());
             myCourse.setLocation((int) ((int) width / (1.8)), (int) (height / 4));
             myCourse.setSize(500, 300);
             myCourse.setName("myCourse");
-
             myCourse.addListSelectionListener(new ListSelectionListener() {
                 @Override
                 public void valueChanged(ListSelectionEvent e) {
                     String s = myCourse.getSelectedValue().toString();
                     for (int i = 0; i < course.size(); i++) {
                         if (course.get(i).getCourseName().equals(s)) {
-                            System.out.println("slm");
                             MainFrame.getInstance().getContentPane().removeAll();
                             MainFrame.getInstance().getContentPane().add(course.get(i).getCourseUI());
                             MainFrame.getInstance().getContentPane().validate();

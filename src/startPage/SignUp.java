@@ -67,8 +67,9 @@ public class SignUp {
                 MainFrame.getInstance().getContentPane().add(newTeacher.getTeacherUI());
                 MainFrame.getInstance().getContentPane().validate();
             } else {
-                System.out.println("ops");
+                
                 Student student = new Student(name, username);
+                save.Save.setWhoIsIn(student);
                 MainFrame.getInstance().getContentPane().removeAll();
                 MainFrame.getInstance().getContentPane().add(student.getStudentUI());
                 MainFrame.getInstance().getContentPane().validate();

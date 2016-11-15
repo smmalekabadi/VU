@@ -17,13 +17,14 @@ import ui.StudentUI;
  */
 public class Student extends Person {
 
-    private ArrayList<Course> AllCourse;
-    private ArrayList<Course> myCourse;
+    private ArrayList<Course> AllCourse=new ArrayList<Course>();
+    private ArrayList<Course> myCourse=new ArrayList<Course>();
     private StudentUI studentUI;
     public Student(String name, String username) {
         super(name, username,Person.STUDENT_CODE);
+        Save.addOneStudent(this);
         studentUI= new StudentUI(username,this);
-         Save.addOneStudent(this);
+         
     }
 
     public void coureList() {

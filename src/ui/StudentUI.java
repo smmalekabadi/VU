@@ -28,10 +28,11 @@ public class StudentUI extends PersonUI {
     public StudentUI(String username, Student student) {
         super(username);
         this.student = student;
-        update();
 
+        update();
     }
 
+    @Override
     public void update() {
 
         showCourses();
@@ -40,18 +41,18 @@ public class StudentUI extends PersonUI {
 
     public void showCourses() {
         ArrayList<Course> course = student.getMyCourse();
-        if (course != null && course.isEmpty()) {
+        if (course != null && !course.isEmpty()) {
             myList myCourse = new myList();
             myCourse.setListData(course.toArray());
+
             myCourse.setLocation((int) ((int) width / (1.8)), (int) (height / 4));
-            myCourse.setSize(500, 500);
+            myCourse.setSize(500, 300);
             myCourse.addListSelectionListener(new ListSelectionListener() {
                 @Override
                 public void valueChanged(ListSelectionEvent e) {
                     String s = myCourse.getSelectedValue().toString();
                     for (int i = 0; i < course.size(); i++) {
                         if (course.get(i).getCourseName().equals(s)) {
-                            System.out.println("slm");
                             MainFrame.getInstance().getContentPane().removeAll();
                             MainFrame.getInstance().getContentPane().add(course.get(i).getCourseUI());
                             MainFrame.getInstance().getContentPane().validate();
@@ -70,29 +71,30 @@ public class StudentUI extends PersonUI {
     }
 
     public void showNewseedExercise() {
-        ArrayList<Course> course=student.getMyCourse();
-        if (course != null && course.isEmpty()) {
+        ArrayList<Course> course = student.getMyCourse();
+        if (course != null && !course.isEmpty()) {
             myList myNewsfeedExercise = new myList();
             ArrayList<CourseObj> courseobj = new ArrayList<CourseObj>();
-            for (Course course1 : course) {
-                for (Exercise ex : course1.getCourseExercise()) {
-                    courseobj.add(ex);
+            for (int i = 0; i < course.size(); i++) {
+                for (int j = 0; j < course.get(i).getCourseExercise().size(); j++) {
+                    courseobj.add(course.get(i).getCourseExercise().get(j));
                 }
-                for (Newsfeed newsfeed : course1.getCourseNewsFeed()) {
-                    courseobj.add(newsfeed);
+                for (int j = 0; j < course.get(i).getCourseNewsFeed().size(); j++) {
+                    courseobj.add(course.get(i).getCourseNewsFeed().get(j));
                 }
+ 
 
             }
             myNewsfeedExercise.setListData(courseobj.toArray());
             myNewsfeedExercise.setLocation((int) ((int) width / (12)), (int) (height / 4));
-            myNewsfeedExercise.setSize(500, 500);
+            myNewsfeedExercise.setSize(500, 300);
             myNewsfeedExercise.addListSelectionListener(new ListSelectionListener() {
                 @Override
                 public void valueChanged(ListSelectionEvent e) {
                     String s = myNewsfeedExercise.getSelectedValue().toString();
                     for (int i = 0; i < course.size(); i++) {
                         if (course.get(i).getCourseName().equals(s)) {
-                            System.out.println("slm");
+
                             MainFrame.getInstance().getContentPane().removeAll();
                             MainFrame.getInstance().getContentPane().add(courseobj.get(i).getCourseObjUI());
                             MainFrame.getInstance().getContentPane().validate();
@@ -103,6 +105,7 @@ public class StudentUI extends PersonUI {
                 }
             });
             add(myNewsfeedExercise);
+            System.out.println("exe and new");
             MainFrame.getInstance().getContentPane().validate();
             MainFrame.getInstance().getContentPane().invalidate();
             MainFrame.getInstance().getContentPane().repaint();

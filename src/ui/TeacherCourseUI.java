@@ -47,11 +47,13 @@ public class TeacherCourseUI extends CourseUI {
         addStudent.setLocation((int) (width / (2)), (int) (height / 1.2));
         addStudent.setText("Add");
         addStudent.setName("add");
+        addStudent.addMouseListener(new Controller());
 
         removeStudent.setText("Remove");
         removeStudent.setLocation((int) (width / (1.7)), (int) (height / 1.2));
         removeStudent.setSize(100, 35);
         removeStudent.setName("remove");
+        removeStudent.addMouseListener(new Controller());
 
         createExercise.setText("Create Exercise");
         createExercise.setLocation((int) (width / (1.5)), (int) (height / 1.2));
@@ -64,7 +66,7 @@ public class TeacherCourseUI extends CourseUI {
         createNewsfeed.setSize(200, 35);
         createNewsfeed.setName("createNewsfeed");
         createNewsfeed.addMouseListener(new Controller());
-        
+
         add(studentName);
         add(addStudent);
         add(removeStudent);
@@ -76,23 +78,31 @@ public class TeacherCourseUI extends CourseUI {
 
         @Override
         public void mouseClicked(MouseEvent e) {
+
+//            for (int i = 0; i < Save.getAllStudent().size(); i++) {
+//                System.out.println(Save.getAllStudent().get(i).getUsername());
+//            }
             if (e.getComponent().getName().equals("add")) {
                 for (int i = 0; i < Save.getAllStudent().size(); i++) {
-                    if (Save.getAllStudent().get(i).getUsername().equals(studentName)) {
+                    if (Save.getAllStudent().get(i).getUsername().equals(studentName.getText())) {
                         Save.getAllStudent().get(i).setOneCourse(getCourse());
-                        JOptionPane.showInputDialog("Student added ");
+                      //  System.out.println(Save.getAllStudent().get(i).getMyCourse());
+                        JOptionPane.showMessageDialog(null, "added succesfully");
+                        
+
                     }
                 }
             } else if (e.getComponent().getName().equals("remove")) {
                 for (int i = 0; i < Save.getAllStudent().size(); i++) {
-                    if (Save.getAllStudent().get(i).getUsername().equals(studentName)) {
+                    if (Save.getAllStudent().get(i).getUsername().equals(studentName.getText())) {
+                        JOptionPane.showMessageDialog(null, "removed succesfully");
                         Save.getAllStudent().get(i).getMyCourse().remove(getCourse());
-                        JOptionPane.showInputDialog("Student remove");
+
                     }
 
                 }
             } else if (e.getComponent().getName().equals("createNewsfeed")) {
-                Newsfeed nf= new Newsfeed("topic", "description",CourseObj.TEACHER_CODE);
+                Newsfeed nf = new Newsfeed("topic", "description", CourseObj.TEACHER_CODE);
                 MainFrame.getInstance().getContentPane().removeAll();
                 MainFrame.getInstance().getContentPane().add(nf.getCourseObjUI());
                 MainFrame.getInstance().getContentPane().validate();
@@ -107,7 +117,7 @@ public class TeacherCourseUI extends CourseUI {
                 MainFrame.getInstance().getContentPane().invalidate();
                 MainFrame.getInstance().getContentPane().repaint();
             }
-           
+
         }
 
         @Override
