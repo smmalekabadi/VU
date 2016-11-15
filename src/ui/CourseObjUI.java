@@ -35,9 +35,10 @@ public class CourseObjUI extends JPanel {
     double width;
     double height;
     Image bgimg;
-
-    public CourseObjUI(String name) {
+    private CourseObj courseObj;
+    public CourseObjUI(String name,CourseObj courseObj) {
         this.name = name;
+        this.courseObj=courseObj;
         setLayout(null);
         MediaTracker mt = new MediaTracker(this);
         bgimg = Toolkit.getDefaultToolkit().getImage("//home//morteza//NetBeansProjects//vu//pictures//background4.jpg");
@@ -105,6 +106,20 @@ public class CourseObjUI extends JPanel {
      */
     public void setName(String name) {
         this.name = name;
+    }
+
+    /**
+     * @return the courseObj
+     */
+    public CourseObj getCourseObj() {
+        return courseObj;
+    }
+
+    /**
+     * @param courseObj the courseObj to set
+     */
+    public void setCourseObj(CourseObj courseObj) {
+        this.courseObj = courseObj;
     }
 
     private class Controller implements MouseListener {

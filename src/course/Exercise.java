@@ -23,8 +23,8 @@ public class Exercise extends CourseObj {
     private ArrayList<File> uploadedExecise = new ArrayList<File>();
     
 
-    public Exercise(String name, String description, Date date, int SorTCode) {
-        super(name, description);
+    public Exercise(String name, String description,Course course, Date date, int SorTCode) {
+        super(name, description,course);
         this.date = date;
         if (SorTCode == 1) {
             courseObjUI = new TeacherExerciseUI(name, this);

@@ -18,10 +18,11 @@ public class CourseObj {
     public static final int TEACHER_CODE = 1;
     public static final int STUDENT_CODE = 2;
     protected CourseObjUI courseObjUI;
-
-    public CourseObj(String name, String description) {
+    private Course course;
+    public CourseObj(String name, String description,Course course) {
         this.name = name;
         this.description = description;
+        this.course=course;
 
     }
 
@@ -65,6 +66,20 @@ public class CourseObj {
      */
     public void setCourseObjUI(CourseObjUI courseObjUI) {
         this.courseObjUI = courseObjUI;
+    }
+
+    /**
+     * @return the course
+     */
+    public Course getCourse() {
+        return course;
+    }
+
+    /**
+     * @param course the course to set
+     */
+    public void setCourse(Course course) {
+        this.course = course;
     }
 
 }

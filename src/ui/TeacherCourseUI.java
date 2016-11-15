@@ -102,7 +102,7 @@ public class TeacherCourseUI extends CourseUI {
 
                 }
             } else if (e.getComponent().getName().equals("createNewsfeed")) {
-                Newsfeed nf = new Newsfeed("topic", "description", CourseObj.TEACHER_CODE);
+                Newsfeed nf = new Newsfeed("topic", "description",course ,CourseObj.TEACHER_CODE);
                 MainFrame.getInstance().getContentPane().removeAll();
                 MainFrame.getInstance().getContentPane().add(nf.getCourseObjUI());
                 MainFrame.getInstance().getContentPane().validate();
@@ -110,7 +110,7 @@ public class TeacherCourseUI extends CourseUI {
                 MainFrame.getInstance().getContentPane().repaint();
 
             } else if (e.getComponent().getName().equals("createExercise")) {
-                Exercise ex = new Exercise("name", "description", new Date(2015, 2, 2), CourseObj.TEACHER_CODE);
+                Exercise ex = new Exercise("name", "description", course,new Date(2015, 2, 2),CourseObj.TEACHER_CODE);
                 MainFrame.getInstance().getContentPane().removeAll();
                 MainFrame.getInstance().getContentPane().add(ex.getCourseObjUI());
                 MainFrame.getInstance().getContentPane().validate();

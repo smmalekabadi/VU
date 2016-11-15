@@ -82,8 +82,6 @@ public class StudentUI extends PersonUI {
                 for (int j = 0; j < course.get(i).getCourseNewsFeed().size(); j++) {
                     courseobj.add(course.get(i).getCourseNewsFeed().get(j));
                 }
- 
-
             }
             myNewsfeedExercise.setListData(courseobj.toArray());
             myNewsfeedExercise.setLocation((int) ((int) width / (12)), (int) (height / 4));

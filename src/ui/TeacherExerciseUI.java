@@ -29,7 +29,7 @@ public class TeacherExerciseUI extends CourseObjUI {
     private Exercise exercise;
 
     public TeacherExerciseUI(String name, Exercise exercise) {
-        super(name);
+        super(name,exercise);
         this.exercise = exercise;
         setElement();
     }
@@ -71,6 +71,7 @@ public class TeacherExerciseUI extends CourseObjUI {
             if (e.getComponent().getName().equals("save")) {
                 exercise.setName(name.getText());
                 exercise.setDescription(description.getText());
+                getCourseObj().getCourse().setOneCourseExercise(exercise);
                 JOptionPane.showMessageDialog(null,"exercise saved");
             }
 

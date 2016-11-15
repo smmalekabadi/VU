@@ -11,6 +11,7 @@ import ui.CourseUI;
 import ui.StudentCourseUI;
 import ui.TeacherCourseUI;
 import users.Student;
+import users.Teacher;
 
 /**
  *
@@ -19,14 +20,16 @@ import users.Student;
 public class Course {
 
     private String courseName;
-    private ArrayList<Exercise> courseExercise = new ArrayList<>();
-    private ArrayList<Newsfeed> courseNewsFeed = new ArrayList<>();
+    private ArrayList<Exercise> courseExercise = new ArrayList<Exercise>();
+    private ArrayList<Newsfeed> courseNewsFeed = new ArrayList<Newsfeed>();
     private CourseUI courseUI;
+    private Teacher teacher;
     public static final int TEACHER_CODE = 1;
     public static final int STUDENT_CODE = 2;
 
-    public Course(String courseName, int SorTCode/*student or teacher code*/) {
+    public Course(String courseName, int SorTCode/*student or teacher code*/,Teacher teacher) {
         this.courseName = courseName;
+        this.teacher=teacher;
         Save.addOnecourse(this);
         if (SorTCode == 1) {
             courseUI = new TeacherCourseUI(courseName, this);
@@ -108,5 +111,19 @@ public class Course {
      */
     public void setCourseUI(CourseUI courseUI) {
         this.courseUI = courseUI;
+    }
+
+    /**
+     * @return the teacher
+     */
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    /**
+     * @param teacher the teacher to set
+     */
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
     }
 }

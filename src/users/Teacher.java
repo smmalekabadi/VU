@@ -31,7 +31,7 @@ public class Teacher extends Person {
     }
 
     public void createCourse(String courseName) {
-        getMyCourses().add(new Course(courseName, Course.TEACHER_CODE));
+        getMyCourses().add(new Course(courseName, Course.TEACHER_CODE,this));
 
     }
 
@@ -41,12 +41,13 @@ public class Teacher extends Person {
     }
 
     public void createExercise(Course course, String name, String description, Date date) {
-        course.setOneCourseExercise(new Exercise(name, description, date, CourseObj.TEACHER_CODE));
+        course.setOneCourseExercise(new Exercise(name, description, course,date, CourseObj.TEACHER_CODE));
 
     }
 
     public void createNewsfeed(Course course, String subjet, String description) {
-        course.setOneCourseNewsfeed(new Newsfeed(subjet, description, CourseObj.TEACHER_CODE));
+        System.out.println(course+"asdasdads");
+        course.setOneCourseNewsfeed(new Newsfeed(subjet, description,course ,CourseObj.TEACHER_CODE));
     }
 
     public void editExercise(Exercise exercise, Date date) {

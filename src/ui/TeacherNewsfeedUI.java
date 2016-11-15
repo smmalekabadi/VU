@@ -6,6 +6,7 @@
 package ui;
 
 
+import course.Course;
 import course.Newsfeed;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -24,7 +25,7 @@ public class TeacherNewsfeedUI extends CourseObjUI {
     private Newsfeed newsfeed;
 
     public TeacherNewsfeedUI(String name,Newsfeed newsfeed) {
-        super(name);
+        super(name,newsfeed);
         this.newsfeed=newsfeed;
     }
 
@@ -59,6 +60,7 @@ public class TeacherNewsfeedUI extends CourseObjUI {
             if (e.getComponent().getName().equals("save")) {
                 newsfeed.setName(name.getText());
                 newsfeed.setDescription(description.getText());
+                getCourseObj().getCourse().setOneCourseNewsfeed(newsfeed);
                 JOptionPane.showMessageDialog(null,"newsfeed saved");
             }
 

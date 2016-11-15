@@ -20,7 +20,7 @@ public class StudentNewsfeedUI extends CourseObjUI {
     private Newsfeed newsfeed;
 
     public StudentNewsfeedUI(String name, Newsfeed newsfeed) {
-        super(name);
+        super(name,newsfeed);
         this.newsfeed = newsfeed;
     }
 

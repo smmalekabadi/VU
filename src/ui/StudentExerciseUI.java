@@ -40,7 +40,7 @@ public class StudentExerciseUI extends CourseObjUI implements ActionListener {
     private int i;
 
     public StudentExerciseUI(String name, Exercise exercise) {
-        super(name);
+        super(name,exercise);
         this.exercise = exercise;
         try {
             s = new Socket("localhost", 10);

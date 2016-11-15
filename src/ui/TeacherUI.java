@@ -121,7 +121,7 @@ public class TeacherUI extends PersonUI {
         public void mouseClicked(MouseEvent e) {
             if (e.getComponent().getName().equals("cc")) {
                 String name = JOptionPane.showInputDialog("enter the course name");
-                Course c = new Course(name, Course.TEACHER_CODE);
+                Course c = new Course(name, Course.TEACHER_CODE,teacher);
                 teacher.setOneCourse(c);
             }
         }

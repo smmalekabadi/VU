@@ -16,16 +16,14 @@ import ui.TeacherNewsfeedUI;
  * @author morteza
  */
 public class Newsfeed extends CourseObj {
-
-   
-
-    public Newsfeed(String name, String description, int SorT) {
-        super(name, description);
+    
+    public Newsfeed(String name, String description, Course course, int SorT) {
+        super(name, description, course);
         if (SorT == 1) {
-            courseObjUI = new TeacherNewsfeedUI(name, this);
+            courseObjUI = new TeacherNewsfeedUI(name,this);
 
         } else {
-            courseObjUI = new StudentNewsfeedUI(name, this);
+            courseObjUI = new StudentNewsfeedUI(name,this);
         }
     }
 //-------------------------------------------------------------------------------
@@ -33,5 +31,4 @@ public class Newsfeed extends CourseObj {
     /**
      * @return the courseObjUI
      */
- 
 }
