@@ -72,7 +72,7 @@ public class PersonUI extends JPanel {
         welcome.setText("Welcome " + name);
         welcome.setLocation((int) width / 10, (int) height / 36);
         welcome.setFont(new Font("Serif", Font.PLAIN, 36));
-        welcome.setSize(450, 100);
+        welcome.setSize(450, 200);
 
         exit.setSize(48, 48);
         exit.setLocation((int) width - 220, (int) height / 14);
