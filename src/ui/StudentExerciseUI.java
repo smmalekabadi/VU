@@ -102,6 +102,9 @@ public class StudentExerciseUI extends CourseObjUI implements ActionListener {
         send.setLocation((int) (width / 2.5) - 15, (int) (height / 1.6));
         send.setSize(350, 35);
         send.addActionListener(this);
+        
+        fc = new JFileChooser();
+        
         add(name);
         add(description);
         add(date);
@@ -114,6 +117,7 @@ public class StudentExerciseUI extends CourseObjUI implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         try {
             if (e.getSource() == browse) {
+                System.out.println("sadasd");
                 int x = fc.showOpenDialog(null);
                 if (x == JFileChooser.APPROVE_OPTION) {
                     copy();

@@ -20,12 +20,14 @@ public class StudentNewsfeedUI extends CourseObjUI {
     private Newsfeed newsfeed;
 
     public StudentNewsfeedUI(String name, Newsfeed newsfeed) {
-        super(name,newsfeed);
+        super(name, newsfeed);
         this.newsfeed = newsfeed;
         setElement();
     }
 
     public void setElement() {
+        name = new myLabel();
+        description = new myLabel();
 
         name.setText(newsfeed.getName());
         name.setSize(350, 35);

@@ -90,7 +90,7 @@ public class StudentUI extends PersonUI {
                 @Override
                 public void valueChanged(ListSelectionEvent e) {
                     String s = myNewsfeedExercise.getSelectedValue().toString();
-                    System.out.println(s);
+                   
                     for (int i = 0; i < courseobj.size(); i++) {
                         if (courseobj.get(i).getName().equals(s)||courseobj.get(i).getName().equals(s)) {
 

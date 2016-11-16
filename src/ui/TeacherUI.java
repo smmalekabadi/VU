@@ -48,6 +48,12 @@ public class TeacherUI extends PersonUI {
 
         add(createCourse);
     }
+    @Override
+    public void update() {
+        setElement();
+        showMyCourse();
+        showStudentExecrcise();
+    }
 
     public void showStudentExecrcise() {
         ArrayList<Course> myCourse = teacher.getMyCourses();
@@ -76,12 +82,7 @@ public class TeacherUI extends PersonUI {
         }
     }
 
-    @Override
-    public void update() {
-        setElement();
-        showMyCourse();
-        showStudentExecrcise();
-    }
+    
 
     public void showMyCourse() {
         ArrayList<Course> course = teacher.getMyCourses();
