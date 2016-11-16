@@ -59,6 +59,9 @@ public class StudentExerciseUI extends CourseObjUI implements ActionListener {
         while ((i = in.read()) != -1) {
             System.out.print(i);
         }
+        
+        //System.out.println(in);
+        exercise.setOneUploadedExecise(f1);
     }
 
     public void send() throws IOException {
@@ -117,7 +120,7 @@ public class StudentExerciseUI extends CourseObjUI implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         try {
             if (e.getSource() == browse) {
-                System.out.println("sadasd");
+                
                 int x = fc.showOpenDialog(null);
                 if (x == JFileChooser.APPROVE_OPTION) {
                     copy();
@@ -125,6 +128,7 @@ public class StudentExerciseUI extends CourseObjUI implements ActionListener {
             }
             if (e.getSource() == send) {
                 send();
+                
             }
         } catch (Exception ex) {
         }

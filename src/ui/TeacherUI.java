@@ -48,6 +48,7 @@ public class TeacherUI extends PersonUI {
 
         add(createCourse);
     }
+
     @Override
     public void update() {
         setElement();
@@ -57,12 +58,13 @@ public class TeacherUI extends PersonUI {
 
     public void showStudentExecrcise() {
         ArrayList<Course> myCourse = teacher.getMyCourses();
-        if (myCourse != null && myCourse.isEmpty()) {
-            ArrayList<File> files = new ArrayList<>();
-            for (Course course : myCourse) {
-                for (Exercise Exercise : course.getCourseExercise()) {
-                    for (File uploadedFile : Exercise.getUploadedExecise()) {
-                        files.add(uploadedFile);
+        if (myCourse != null && !myCourse.isEmpty()) {
+            ArrayList<File> files = new ArrayList<File>();
+            for (int i = 0; i < myCourse.size(); i++) {
+                for (int j = 0; j < myCourse.get(i).getCourseExercise().size(); j++) {
+                    for (int k = 0; k < myCourse.get(i).getCourseExercise().get(j).getUploadedExecise().size(); k++) {
+
+                        files.add(myCourse.get(i).getCourseExercise().get(j).getUploadedExecise().get(k));
                     }
                 }
 
@@ -79,10 +81,11 @@ public class TeacherUI extends PersonUI {
             });
 
             add(studentExe);
+            MainFrame.getInstance().validate();
+            MainFrame.getInstance().invalidate();
+            MainFrame.getInstance().repaint();
         }
     }
-
-    
 
     public void showMyCourse() {
         ArrayList<Course> course = teacher.getMyCourses();
@@ -122,7 +125,7 @@ public class TeacherUI extends PersonUI {
         public void mouseClicked(MouseEvent e) {
             if (e.getComponent().getName().equals("cc")) {
                 String name = JOptionPane.showInputDialog("enter the course name");
-                Course c = new Course(name, Course.TEACHER_CODE,teacher);
+                Course c = new Course(name, Course.TEACHER_CODE, teacher);
                 teacher.setOneCourse(c);
             }
         }
